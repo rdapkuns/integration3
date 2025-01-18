@@ -4,8 +4,14 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* color: rgba(255, 255, 255, 0.87);
+  background-color: #242424; */
+
+  --c-bg-white: rgb(255, 255, 255);
+  --c-bg-grey: #EAEAEA;
+  --c-primary: #B20C3B;
+  --c-light-grey: #F6F6F6;
+  --c-dark-grey: #B7B7B7;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,84 +19,492 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+html {
+  padding: 0rem;
+  margin: 0rem;
 }
 
-body {
-  margin: 0;
+.info {
+  background-color: white;
+  color: var(--c-dark-grey);
+  width: fit-content;
+  padding: 0.3rem 1rem;
+  padding-left: 2.5rem;
+  border-radius: 100px 100px;
+  position: relative;
+}
+
+.info::before {
+  content: url('/assets/info.svg');
+  vertical-align: top;
+  left: 0.5rem;
+  margin-right: 1.5rem;
+  position: absolute;
+}
+
+.info--highlight {
+  color: var(--c-primary);
+}
+
+header {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+section {
+  margin: 10rem 0rem;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
+p {
+  max-width: 35rem;
+}
+
+.topbar {
+  display: grid;
+  grid-template-columns: auto 1fr auto 1fr auto;
+  width: 100%;
+  align-items: center;
+  gap: 1rem;
+}
+
+.line {
+  background-color: #fff;
+  height: 1px;
+}
+
+.christophe {
+  max-width: 500px;
+  min-width: 300px;
+}
+
+.header__description {
+  max-width: 35rem;
+}
+
+.animated__container {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.setting__heading {
+  position: relative;
+  top: 5rem;
+}
+
+.setting__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.setting__control {
+  width: 100%;
+  min-height: 50vh;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+}
+
+.setting__text {
+  align-self: center;
+  justify-self: center;
+}
+
+.control__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.control__buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  width: fit-content;
+}
+
+
+
+.typesetting__body {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+}
+
+.typesetting__body .container__text {
+  grid-column: 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.container__extraviews {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid var(--c-primary);
+}
+
+.typecase__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 80vw 1fr;
+  grid-template-rows: 3rem 90vh 3rem;
+}
+
+.typecase__container {
+  /* background-color: green; */
+  /* position: relative; */
+
+  /* width: 100%; */
+  max-width: 100vw;
+  height: 80vh;
+  height: 100%;
+  /* height: 100%; */
+  display: flex;
+  /* display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: 3rem 80vh 3rem; */
+  /* place-content: center; */
+  justify-content: center;
+  align-items: center;
+}
+
+.typecase__wrapper>div:nth-child(1) {
+  border-right: 1px dashed var(--c-dark-grey);
+  border-bottom: 1px solid var(--c-dark-grey);
+}
+
+.typecase__wrapper>div:nth-child(2) {
+  border-right: 1px dashed var(--c-dark-grey);
+  border-bottom: 1px solid var(--c-dark-grey);
+}
+
+.typecase__wrapper>div:nth-child(3) {
+  border-bottom: 1px solid var(--c-dark-grey);
+  border-left: 1px dashed var(--c-dark-grey);
+}
+
+.typecase__wrapper>div:nth-child(4) {
+  border-left: 1px dashed var(--c-dark-grey);
+  /* writing-mode: horizontal-tb; */
+  writing-mode: vertical-lr;
+  transform: rotate(-180deg);
+  text-align: end;
+  padding: 1rem;
+  color: var(--c-dark-grey);
+}
+
+.typecase__wrapper>div:nth-child(5) {
+  background-color: transparent;
+  /* opacity: 0.8; */
+  background: repeating-linear-gradient(-45deg, var(--c-light-grey), var(--c-light-grey) 3px, transparent 3px, transparent 25px);
+  animation: panBackground 2s linear infinite;
+  background-size: 100% 100%;
+}
+
+@keyframes panBackground {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 35px 0;
+    /* Adjust based on desired speed and direction */
+  }
+}
+
+
+.typecase__wrapper>div:nth-child(6) {
+  border-left: 1px dashed var(--c-dark-grey);
+  padding-left: 3rem;
+}
+
+.typecase__wrapper>div:nth-child(6) svg {
+  height: 100%;
+}
+
+.typecase__wrapper>div:nth-child(7) {
+  border-right: 1px dashed var(--c-dark-grey);
+  border-top: 1px solid var(--c-dark-grey);
+}
+
+.typecase__wrapper>div:nth-child(8) {
+  border-top: 1px solid var(--c-dark-grey);
+}
+
+.typecase__wrapper>div:nth-child(9) {
+  border-left: 1px dashed var(--c-dark-grey);
+  border-top: 1px solid var(--c-dark-grey);
+}
+
+.typecase {
+  /* background-color: orange; */
+  /* position: relative; */
+  background-image: url("/assets/typecase.png");
+  background-position: center;
+  /* background-size: contain; */
+  width: 100%;
+  height: 90%;
+
+  /* width: 70%;
+  height: 90%; */
+
+  display: grid;
+
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  /* column-gap: 0.7rem;
+  row-gap: 0.3rem; */
+
   padding: 2rem;
-  text-align: center;
+  background-size: 100% 100%;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
+.typecase__item {
+  grid-column: 2;
 }
 
-.card {
-  padding: 2em;
+.cell {
+  background-color: blue;
+  background-image: url("/assets/type-1.jpg");
+  background-size: 100% 100%;
+
 }
 
-.read-the-docs {
-  color: #888;
+.cell:nth-child(3n) {
+  background-image: url("/assets/type-2.jpg");
+  background-size: 100% 100%;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.cell:nth-child(5n) {
+  background-image: url("/assets/type-3.jpg");
+  background-size: 100% 100%;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.cell:nth-child(6n) {
+  background-image: url("/assets/type-4.jpg");
+  background-size: 100% 100%;
+}
+
+.cell:nth-child(7n) {
+  background-image: url("/assets/type-5.jpg");
+  background-size: 100% 100%;
+}
+
+
+
+
+@media (max-width: 60rem) {
+  .cell:nth-child(-n+8) {
+    /* background-color: red; */
+    grid-column: span 2;
   }
-  a:hover {
-    color: #747bff;
+
+  .cell:nth-child(n+25) {
+    grid-column: span 2;
+    grid-row: span 2;
   }
-  button {
-    background-color: #f9f9f9;
+
+  .cell--special {
+    position: relative;
+    background-image: url("/assets/type-red.jpg") !important;
+    background-color: var(--c-primary) !important;
+    transition: all 0.5s ease-out;
+    min-width: 5rem;
+    min-height: 5rem;
+    overflow: hidden;
+  }
+
+  .cell--special::before {
+    content: "?";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    pointer-events: none;
+    transition: all 0.5s ease-out;
+    transition: opacity 0.5s ease-in-out;
+    white-space: normal;
+    font-size: 1rem;
+    color: white;
+    padding: 1rem;
+  }
+
+  .cell--special:hover {
+    min-width: 15rem;
+    min-height: 25rem;
+    width: fit-content;
+    font-weight: 400;
+    min-height: 20rem;
+    padding: 1rem;
+  }
+
+  .cell--special:hover::before {
+    width: fit-content;
+    width: fit-content;
+    content: 'The typesetting process began with selecting the appropriate typeface and font size. Plantin was known for his appreciation of elegant typography and collaborated with some of the finest type designers of his time, including the renowned French punchcutter Claude Garamond. The clean and legible fonts used in Plantins books helped set a new standard for printed works.';
+    opacity: 1;
+    font-weight: 400;
+    padding: 1rem;
+  }
+
+  .cell--special {
+    position: relative;
+    background-image: url("/assets/type-red.jpg") !important;
+    background-color: var(--c-primary) !important;
+    overflow: hidden;
+    min-width: 5rem;
+    min-height: 5rem;
+    transition: all 0.5s ease-out;
+  }
+
+  .cell--special::before {
+    content: "?";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    pointer-events: none;
+    transition: opacity 0.5s ease-in-out;
+    white-space: normal;
+    font-size: 1rem;
+    color: white;
+    padding: 1rem;
+  }
+
+  .cell--special:hover {
+    min-width: 15rem;
+    min-height: 20rem;
+    padding: 1rem;
+  }
+
+  .cell--special:hover::before {
+    width: 80%;
+    height: 80%;
+    content: 'The typesetting process began with selecting the appropriate typeface and font size. Plantin was known for his appreciation of elegant typography and collaborated with some of the finest type designers of his time, including the renowned French punchcutter Claude Garamond. The clean and legible fonts used in Plantins books helped set a new standard for printed works.';
+    opacity: 1;
+    font-weight: 400;
+  }
+}
+
+@media (min-width: 60rem) {
+
+  h2 {
+    margin-left: 2rem;
+  }
+
+
+  .setting__body {
+    display: grid;
+    grid-template-columns: 3fr 4fr;
+  }
+
+  .setting__control {
+    grid-column: 2;
+  }
+
+  .setting__text {
+    margin-left: 2rem;
+    justify-self: left;
+  }
+
+
+
+
+
+  .typesetting__body {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1rem;
+    margin-left: 2rem;
+  }
+
+  .typesetting__body .container__text {
+    grid-column: 2;
+    grid-row: 1;
+    align-items: start;
+    justify-content: center;
+  }
+
+
+
+
+  .typecase {
+    /* background-color: orange; */
+    /* width: 100%;
+      height: 90%; */
+
+    display: grid;
+
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+
+
+  }
+
+  .cell:nth-child(-n+20) {
+    /* background-color: red; */
+    grid-column: span 2;
+  }
+
+  .cell:nth-child(n+81) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .cell--special {
+    position: relative;
+    background-image: url("/assets/type-red.jpg") !important;
+    background-color: var(--c-primary) !important;
+    overflow: hidden;
+    min-width: 5rem;
+    min-height: 5rem;
+    transition: all 0.5s ease-out;
+  }
+
+  .cell--special::before {
+    content: "?";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    pointer-events: none;
+    transition: opacity 0.5s ease-in-out;
+    white-space: normal;
+    font-size: 1rem;
+    color: white;
+    padding: 1rem;
+  }
+
+  .cell--special:hover {
+    min-width: 25rem;
+    min-height: 25rem;
+    min-height: 15rem;
+    padding: 1rem;
+  }
+
+  .cell--special:hover::before {
+    width: 80%;
+    height: 80%;
+    content: 'The typesetting process began with selecting the appropriate typeface and font size. Plantin was known for his appreciation of elegant typography and collaborated with some of the finest type designers of his time, including the renowned French punchcutter Claude Garamond. The clean and legible fonts used in Plantins books helped set a new standard for printed works.';
+    opacity: 1;
+    font-weight: 400;
   }
 }
