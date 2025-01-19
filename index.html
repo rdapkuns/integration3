@@ -8,6 +8,7 @@
   <title>Christophe Plantin</title>
 </head>
 
+
 <body>
   <header>
     <div class="topbar">
@@ -37,7 +38,7 @@
 
   <main>
     <section class="setting">
-      <h2 class="setting__heading"><span>-01-</span>Setting up the workplace</h2>
+      <h2 class="setting__heading"><span class="heading__number">-01-</span>Setting up the workplace</h2>
       <div class="setting__body">
         <div class="setting__control">
           <div class="control__container">
@@ -64,23 +65,22 @@
           <p class="text--story">The story of Christophe Plantin begins like the assembly of a workshop: piece by piece,
             each part carefully
             chosen and
-            fitted to serve a greater purpose. Born in 1520 in Saint-Avertin, France, Plantin’s early life provided the
+            fitted to serve a greater purpose. Born in 1520 in Saint-Avertin, France, Plantin's early life provided the
             raw
             materials for his future success. He trained as a bookbinder and leatherworker, learning the precision and
             patience that
             would later define his printing career</p>
         </div>
       </div>
-      </div>
     </section>
 
     <section class="typesetting">
-      <h2 class="typesetting__heading"><span>-02-</span>Typesetting</h2>
+      <h2 class="typesetting__heading"><span class="heading__number">-02-</span>Typesetting</h2>
       <div class="typesetting__body">
         <div class="container__mainimg">
-          <p>movable type block</p>
+          <p class="comment">movable type block</p>
           <img src="/assets/placeh.jpg">
-          <p>materials include lead, tin, antimony</p>
+          <p class="comment">materials include lead, tin, antimony</p>
         </div>
         <div class="container__extraviews">
           <img src="/assets/placeh.jpg" width="50">
@@ -114,7 +114,7 @@
         <div></div>
         <div></div>
         <div></div>
-        <div>Typecase contains all the letters, marks, glyphs for this typeface</div>
+        <div  class="comment">Typecase contains all the letters, marks, glyphs for this typeface</div>
         <div class="typecase__container">
           <div class="typecase"></div>
         </div>
@@ -134,12 +134,357 @@
 
 
     <section class="printing">
-      <h2 class="printing__heading"><span>-03-</span>Printing</h2>
+      <h2 class="printing__heading"><span class="heading__number">-03-</span>Printing</h2>
       <div class="printing__body">
-        
+        <div class="printing__visuals">
+          <div class="progress-bar">
+            <div class="progress-bar--fill"></div>
+            <div class="progress-bar--space"></div>
+          </div>
+          <div class="press__container">
+            <img src="/assets/placeh.jpg">
+            <!-- bg circles -->
+          </div>
+        </div>
+        <div class="printing__text">
+          <h3>Printing ideas onto reality</h3>
+          <p>Printing in Christophe Plantin's workshop was a marvel of coordination and craftsmanship, where the ideas
+            painstakingly
+            assembled during typesetting were brought to life on the page. At the heart of this process was the printing
+            press
+            itself—a heavy, imposing machine that symbolized Plantin's mission: to transform human thought into
+            tangible, shareable
+            knowledge.</p>
+          <div class="printing__note">
+            <div class="note__text">
+              <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M2.50111 5.14859C2.51954 5.42412 2.75784 5.63254 3.03337 5.61411L7.52334 5.31379C7.79886 5.29536 8.00728 5.05706 7.98885 4.78154C7.97042 4.50601 7.73213 4.29759 7.4566 4.31602L3.46552 4.58297L3.19857 0.591888C3.18014 0.316361 2.94184 0.107943 2.66631 0.126372C2.39078 0.144801 2.18237 0.383099 2.20079 0.658626L2.50111 5.14859ZM19.5 11C19.5 9.06081 18.8998 7.16854 17.7807 5.57706L16.9627 6.15226C17.9639 7.57603 18.5 9.26758 18.5 11H19.5ZM17.7807 5.57706C16.6617 3.98566 15.0776 2.77139 13.2416 2.09612L12.8964 3.03465C14.5429 3.64021 15.9615 4.72841 16.9627 6.15226L17.7807 5.57706ZM13.2416 2.09612C11.4057 1.42087 9.40495 1.31657 7.50751 1.79707L7.753 2.76647C9.45509 2.33544 11.2499 2.42907 12.8964 3.03465L13.2416 2.09612ZM7.50751 1.79707C5.61003 2.27758 3.90571 3.32019 2.62364 4.78605L3.37636 5.44439C4.52396 4.13227 6.05096 3.19749 7.753 2.76647L7.50751 1.79707Z"
+                  fill="#C4C4C4" />
+                <path
+                  d="M17.4989 16.8514C17.4805 16.5759 17.2422 16.3675 16.9666 16.3859L12.4767 16.6862C12.2011 16.7046 11.9927 16.9429 12.0111 17.2185C12.0296 17.494 12.2679 17.7024 12.5434 17.684L16.5345 17.417L16.8014 21.4081C16.8199 21.6836 17.0582 21.8921 17.3337 21.8736C17.6092 21.8552 17.8176 21.6169 17.7992 21.3414L17.4989 16.8514ZM0.5 11C0.5 12.9392 1.1002 14.8315 2.21929 16.4229L3.0373 15.8477C2.03614 14.424 1.5 12.7324 1.5 11H0.5ZM2.21929 16.4229C3.33832 18.0143 4.92242 19.2286 6.7584 19.9039L7.10359 18.9654C5.45714 18.3598 4.03851 17.2716 3.0373 15.8477L2.21929 16.4229ZM6.7584 19.9039C8.59432 20.5791 10.595 20.6834 12.4925 20.2029L12.247 19.2335C10.5449 19.6646 8.75009 19.5709 7.10359 18.9654L6.7584 19.9039ZM12.4925 20.2029C14.39 19.7224 16.0943 18.6798 17.3764 17.2139L16.6236 16.5556C15.476 17.8677 13.949 18.8025 12.247 19.2335L12.4925 20.2029Z"
+                  fill="#C4C4C4" />
+              </svg>
+              <p  class="comment">scroll to rotate the printing press</p>
+            </div>
+            <svg width="1363" height="8" viewBox="0 0 1363 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M1362.35 4.35355C1362.55 4.15829 1362.55 3.8417 1362.35 3.64644L1359.17 0.464462C1358.98 0.2692 1358.66 0.2692 1358.46 0.464462C1358.27 0.659724 1358.27 0.976307 1358.46 1.17157L1361.29 4L1358.46 6.82842C1358.27 7.02369 1358.27 7.34027 1358.46 7.53553C1358.66 7.73079 1358.98 7.73079 1359.17 7.53553L1362.35 4.35355ZM0.646447 3.64653C0.451184 3.84179 0.451184 4.15837 0.646447 4.35363L3.82843 7.53561C4.02369 7.73088 4.34027 7.73088 4.53553 7.53561C4.7308 7.34035 4.7308 7.02377 4.53553 6.82851L1.70711 4.00008L4.53553 1.17165C4.7308 0.976391 4.7308 0.659808 4.53553 0.464546C4.34027 0.269284 4.02369 0.269284 3.82843 0.464546L0.646447 3.64653ZM1362 3.5L1 3.50008L1 4.50008L1362 4.5L1362 3.5Z"
+                fill="#B20C3B" />
+            </svg>
+
+          </div>
+        </div>
       </div>
     </section>
+
+    <section>
+      <h2 class="visually-hidden">Bible</h2>
+      <div class="bible__body">
+        <div class="bible__text">
+          <div class="bible__animation--container">
+            <img src="/assets/placeh.jpg" width="50">
+            <img src="/assets/placeh.jpg" width="50">
+            <img src="/assets/placeh.jpg" width="50">
+            <img src="/assets/placeh.jpg" width="50">
+            <img src="/assets/placeh.jpg" width="50">
+            <img src="/assets/placeh.jpg" width="50">
+            <img src="/assets/placeh.jpg" width="50">
+            <img src="/assets/placeh.jpg" width="50">
+          </div>
+          <div class="bible__description">
+            <h3 class="bible__description--heading">Polyglot Bible</h3>
+            <p>Commissioned by King Philip II of Spain, the Polyglot Bible was a multilingual masterpiece. It featured
+              the text of the
+              Bible in Hebrew, Greek, Latin, Syriac, and Aramaic, spread across eight massive volumes. This work wasn’t
+              merely a
+              display of linguistic scholarship; it was also a political and religious statement, reinforcing Catholic
+              authority in an
+              era of Protestant Reformation.</p>
+          </div>
+        </div>
+        <div class="bible__img">
+          <div class="books__container">
+            <img src="/assets/bible1.webp" width="300">
+            <img src="/assets/bible2.webp" width="300">
+            <img src="/assets/bible3.webp" width="300">
+            <img src="/assets/bible1.webp" width="300">
+            <img src="/assets/bible2.webp" width="300">
+            <img src="/assets/bible1.webp" width="300">
+            <img src="/assets/bible2.webp" width="300">
+            <img src="/assets/bible1.webp" width="300">
+          </div>
+          <div class="bible__stats">
+            <svg width="8" height="814" viewBox="0 0 8 814" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M4.35355 0.646447C4.15829 0.451184 3.84171 0.451184 3.64645 0.646447L0.464466 3.82843C0.269204 4.02369 0.269204 4.34027 0.464466 4.53553C0.659728 4.7308 0.976311 4.7308 1.17157 4.53553L4 1.70711L6.82843 4.53553C7.02369 4.7308 7.34027 4.7308 7.53553 4.53553C7.7308 4.34027 7.7308 4.02369 7.53553 3.82843L4.35355 0.646447ZM3.64645 813.354C3.84171 813.549 4.15829 813.549 4.35355 813.354L7.53553 810.172C7.7308 809.976 7.7308 809.66 7.53553 809.464C7.34027 809.269 7.02369 809.269 6.82843 809.464L4 812.293L1.17157 809.464C0.976311 809.269 0.659728 809.269 0.464466 809.464C0.269204 809.66 0.269204 809.976 0.464466 810.172L3.64645 813.354ZM3.5 1L3.5 813L4.5 813L4.5 1L3.5 1Z"
+                fill="#B20C3B" />
+            </svg>
+            <ul  class="comment">
+              <li>8 volumes</li>
+              <li>2000+ pages each</li>
+              <li>5 languages</li>
+              <li>120 copies made</li>
+              <li>5 years of work</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="progress__container">
+        <div class="progress__dot progress__dot--current"></div>
+        <div class="progress__dot"></div>
+        <div class="progress__dot"></div>
+      </div>
+    </section>
+
+
+
+    <section class="proof">
+      <h2 class="proof__heading"><span class="heading__number">-04-</span>Proof-reading</h2>
+      <div class="proof__container">
+        <div class="proof__header">
+          <h3>Navigating the fine line</h3>
+          <p class="info">Find the remaining <span class="info--highlight">3</span> errors in the text below</p>
+        </div>
+        <div class="proof__body">
+          <div class="proof__comment proof__comment--1">
+            <p>Plantin's workshop employed highly skilled proofreaders known as 'correctors,' who were tasked with
+              maintaining the
+              highest quality. One of his most famous correctors was Cornelis Kiliaan, who later compiled one of the
+              first Dutch
+              dictionaries.</p>
+          </div>
+          <p class="proof__text">
+            Proofreading in Christophe Plantin's workschop was a task of vigilance. Every page had to be scurtinized for
+            errors
+            before itleft the press. A misplaced leter, a missing mark, or a smudged line could compromise the integrity
+            of the
+            text. For Plantin, however, the act of proofreading extended beyond the printed page. In an era marked by
+            religious
+            upheaval and censorship, his entire career reqiured careful revision and adjustment to avoid the “errors”
+            that could
+            endenger his work or even life.
+          </p>
+          <div class="proof__comment proof__comment--2">
+            <p>All printed works had to comply with the Index Librorum Prohibitorum, a list of banned books maintained
+              by the Catholic
+              Church. Failure to adhere to these restrictions could result in severe penalties.</p>
+            <p>Smudging could occur if the ink wasn't applied evenly or if the paper moved during printing. Plantin
+              addressed these
+              issues by investing in high-quality presses and training his workers to handle the equipment with
+              precision.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="building">
+      <h2 class="visually-hidden">Proof-reading</h2>
+      <div class="building__wrapper">
+        <div class="building__container">
+          <img src="/assets/museumdark.webp" alt="museum building" class="building__img">
+          <div class="building__text">
+            <h3>Raid on the office</h3>
+            <p class="text--light">Despite his meticulousness, Plantin's workshop wasn't immune to suspicion. In 1562, his office was raided
+              by the city
+              authorities on accusations of heresy. Some of his printed works were deemed to lean too closely toward
+              Protestant views,
+              a dangerous association in Catholic-controlled Antwerp. The raid forced Plantin to temporarily shut down
+              operations, and
+              while he managed to avoid harsh penalties, it was a clear warning of how precarious his position had
+              become.</p>
+          </div>
+          <div class="container" id="mask-container">
+            <img src="/assets/museumlight.webp" class="image mask-method building__img" id="mask-image">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="map__section">
+      <h2 class="visually-hidden">map</h2>
+      <div class="map__body">
+        <div class="map__container">
+          <!-- <img src="/assets/map.webp" alt="map of belgium and netherlands" class="map"> -->
+          <!-- <div class="map"> -->
+          <div class="map__plantin"></div>
+          <!-- </div> -->
+        </div>
+        <div class="map__text">
+          <h3>Fleeing to the Netherlands</h3>
+          <p class="map__paragraph map__paragraph--1">
+            The tensions in Antwerp eventually grew so severe that Plantin was forced to flee to Leiden in 1567. There,
+            he
+            established a new press with the help of Protestant supporters, temporarily escaping the Catholic
+            authorities' watchful
+            eyes. His time in the Netherlands allowed him to maintain his livelihood, but it also showed his willingness
+            to adapt
+            and shift alliances when necessary.</p>
+          <p class="info">Move Plantin from Antwerp to <span class="info--highlight">Leiden</span></p>
+
+          <p class="map__paragraph map__paragraph--2">
+            Leiden offered Plantin a fresh start in a more Protestant-friendly environment. During his time there, he
+            worked on
+            printing materials that aligned with the Reformation, such as theological texts and scholarly works by
+            prominent
+            Protestant authors. Yet, true to his nature, Plantin avoided fully committing to any single faction, knowing
+            the dangers
+            of aligning too closely with one side.</p>
+          <p class="info">Move Plantin back to <span class="info--highlight">Antwerp</span></p>
+
+          <p class="map__paragraph map__paragraph--3">
+            After a few years in Leiden, Plantin returned to Antwerp, a city still under Catholic rule but essential for
+            his
+            ambitions. Back in his original workshop, he secured the favor of powerful Catholic patrons, including King
+            Philip II of
+            Spain. This relationship granted him privileges such as lucrative printing licenses, including the right to
+            publish
+            official Catholic texts</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="outro">
+      <h2 class="visually-hidden">outro</h2>
+      <div class="outro__container">
+        <div class="outro__image">
+          <img src="/assets/museum.webp" alt="museum building" class="museum__img">
+          <div class="museum__comments">
+            <p class="comment">Vrijdagmarkt 22</p>
+            <p class="comment">Antwerpen</p>
+          </div>
+        </div>
+        <div class="outro__text">
+          <p>This chapter concludes the first of six stories in our series exploring Plantins endevours</p>
+          <p>For those inspired to dive deeper into Plantin's world, there's no better way than to visit the
+            Plantin-Moretus Museum
+            in Antwerp. Walk through the very halls where Plantin and his successors worked tirelessly to create
+            masterpieces of
+            typography and printing. See the presses, admire the typefaces, and immerse yourself in the legacy of a man
+            who changed
+            how knowledge traveled through the world.</p>
+          <button class="visit__button">Visit Plantin-Moretus <span><svg width="20" height="20" viewBox="0 0 20 20"
+                fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M15 10.8333V15.8333C15 16.2754 14.8244 16.6993 14.5118 17.0118C14.1993 17.3244 13.7754 17.5 13.3333 17.5H4.16667C3.72464 17.5 3.30072 17.3244 2.98816 17.0118C2.67559 16.6993 2.5 16.2754 2.5 15.8333V6.66667C2.5 6.22464 2.67559 5.80072 2.98816 5.48816C3.30072 5.17559 3.72464 5 4.16667 5H9.16667"
+                  stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M12.5 2.5H17.5V7.5" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M8.33337 11.6667L17.5 2.5" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></span></button>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="distribution">
+      <div class="dist__container--main">
+        <div class="dist__header">
+          <h2 class="proof__heading"><span class="heading__number">-05-</span>Distribution</h2>
+          <div class="dist__anim--container">
+            <div class="dist__decor"></div>
+            <div class="dist__anims">
+              <img class="dist__anim" src="/assets/placeh.jpg" width="30">
+              <img class="dist__anim" src="/assets/placeh.jpg" width="30">
+              <img class="dist__anim" src="/assets/placeh.jpg" width="30">
+              <img class="dist__anim" src="/assets/placeh.jpg" width="30">
+              <img class="dist__anim" src="/assets/placeh.jpg" width="30">
+              <img class="dist__anim" src="/assets/placeh.jpg" width="30">
+              <img class="dist__anim" src="/assets/placeh.jpg" width="30">
+              <img class="dist__anim" src="/assets/placeh.jpg" width="30">
+            </div>
+          </div>
+        </div>
+        <div class="dist__text">
+          <h3>The legacy lives on</h3>
+          <p>When Christophe Plantin passed away in 1589, his legacy did not end. The Plantin Press continued to
+            flourish under the
+            stewardship of his son-in-law, Jan Moretus, who had been an integral part of the business for many years.
+            Moretus not
+            only maintained Plantin's high standards of craftsmanship but also expanded the workshop's reach, ensuring
+            that the
+            Plantin-Moretus name became synonymous with quality printing for generations.</p>
+
+            <p>If the printing press was the engine of Christophe Plantin's success, then distribution was its driving force. Printing
+            a book was only half the battle. Ensuring that it reached scholars, clergy, and readers across Europe and beyond was a
+            monumental task. For Plantin, distribution wasn't just about commerce. It was about spreading knowledge and shaping
+            culture.</p>
+
+            <p>Plantin's workshop wasn't just a local operation—it was an international powerhouse. By the height of his career, he had
+            established a vast network of booksellers and agents across Europe, from Paris to Frankfurt and Venice to London.</p>
+
+            <p>The Polyglot Bible, for example, was not just a scholarly achievement but also a logistical one. Copies of this
+            monumental work were shipped to courts, universities, and libraries across the continent, solidifying Plantin's
+            reputation as one of the most important printers of the Renaissance.</p>
+
+            <p>Plantin also maintained close ties with Spanish markets, thanks to his patronage by King Philip II. This connection
+            granted him the prestigious title of Architypographer to the King, allowing his works to circulate widely within the
+            Spanish Empire, including its colonies in the Americas.</p>
+        </div>
+        
+      </div>
+      <div class="dist__footer">
+        <img src="/assets/book-low.webp">
+        <img src="/assets/book-low.webp">
+        <img src="/assets/book-low.webp">
+      </div>
+
+
+    </section>
   </main>
+
+
+
+
+
+
+  <footer class="text--light">
+    <div class="footer__body">
+      <div class="logo__container">
+        <img src="/assets/placeh.jpg" width="50">
+      </div>
+      <div class="stay__container">
+        <h4>Stay in touch</h4>
+        <div class="socials__container">
+          <a href="#" class="social"><img src="/assets/placeh.jpg" width="30"></a>
+          <a href="#" class="social"><img src="/assets/placeh.jpg" width="30"></a>
+          <a href="#" class="social"><img src="/assets/placeh.jpg" width="30"></a>
+          <a href="#" class="social"><img src="/assets/placeh.jpg" width="30"></a>
+          <a href="#" class="social"><img src="/assets/placeh.jpg" width="30"></a>
+          <a href="#" class="social"><img src="/assets/placeh.jpg" width="30"></a>
+          <a href="#" class="social"><img src="/assets/placeh.jpg" width="30"></a>
+        </div>
+        <a href="#">Press</a>
+        <a href="#">Travel trade</a>
+        <a href="#">Support us</a>
+      </div>
+      <div class="contact__container">
+        <h4>Contact us</h4>
+        <ul>
+          <li>Vrijdagmarkt 22</li>
+          <li>2000 Antwerp</li>
+          <li>Belgium</li>
+          <li>tel. +32 (0)3 221 14 50</li>
+          <li>museum.plantin.moretus@antwerpen.be</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__footer">
+      <div class="footer__legal">
+        <span>Museum Plantin-Moretus</span>
+        <span>© 2015 - 2025 All rights reserved</span>
+      </div>
+      <ul>
+        <li><a href="#">Privacy policy</a></li>
+        <li><a href="#">Cookies</a></li>
+        <li><a href="#">Accessibility</a></li>
+        <li><a href="#">Conditions of sale</a></li>
+        <li><a href="#">Manage cookies</a></li>
+      </ul>
+    </div>
+  </footer>
   <script type="module" src="/src/main.js"></script>
 </body>
 
