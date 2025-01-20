@@ -59,6 +59,17 @@ html {
   color: black;
 }
 
+h1 {
+  color: var(--primary-red, #B20C3B);
+  text-align: center;
+  font-family: "Pirata One";
+  font-size: 6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  /* 6rem */
+}
+
 h2 {
   color: black;
   font-family: PlainGermanica;
@@ -103,7 +114,7 @@ body {
   padding-left: 2.5rem;
   border-radius: 100px 100px;
   position: relative;
-  margin: 1rem;
+  margin: 1rem 0rem;
 
   -webkit-box-shadow: 0px 25px 58px -21px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 25px 58px -21px rgba(0, 0, 0, 0.75);
@@ -197,6 +208,11 @@ img {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+}
+
+.star__anim {
+  max-width: 3rem;
+  background: transparent;
 }
 
 .setting__heading {
@@ -414,6 +430,7 @@ img {
   display: grid;
   grid-template-rows: 4fr 3fr;
   grid-template-columns: 1fr;
+  margin: 0rem 1rem;
 }
 
 
@@ -428,6 +445,13 @@ img {
 .press__container {
   align-self: center;
   justify-self: center;
+  display: grid;
+}
+
+.press__anim{
+  place-self: center;
+  width: 80%;
+  max-width: 1080px;
 }
 
 .progress-bar {
@@ -441,7 +465,7 @@ img {
 }
 
 .progress-bar--space {
-  background-color: var(--c-dark-grey);
+  background-color: var(--c-light-grey);
   width: 100%;
   height: 100%;
   grid-row: 1;
@@ -512,6 +536,10 @@ img {
 
 
 
+.bible__section {
+  position: relative;
+  background-color: var(--c-light-grey);
+}
 
 .bible__body {
   display: grid;
@@ -525,18 +553,24 @@ img {
   justify-content: space-evenly;
 }
 
+
+
 .bible__text {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 2rem;
+  padding-left: 1rem;
 }
 
 .bible__img {
   grid-row: 1;
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* gap: 3rem; */
+  display: grid;
+  grid-template-columns: 4fr 2fr;
 
   border-top: 1px dashed var(--c-primary);
   border-bottom: 1px dashed var(--c-primary);
@@ -545,7 +579,21 @@ img {
 .books__container {
   display: flex;
   flex-direction: column;
+  padding-left: 3rem;
+  max-width: 300px;
+  justify-content: space-between;
+  /* height: 100%; */
+  height: fit-content;
+}
 
+.books__container img {
+  /* -webkit-box-shadow: 43px 0px 59px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 43px 0px 59px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 83px 0px 59px 0px rgba(0, 0, 0, 0.4); */
+}
+
+.book__anim {
+  max-width: 3rem;
 }
 
 .bible__stats {
@@ -585,7 +633,7 @@ img {
   background-color: transparent;
   opacity: 0.8;
   background-size: 4rem 4rem;
-  background-image: repeating-linear-gradient(0deg, var(--c-light-grey), var(--c-light-grey) 1px, transparent 1px, transparent);
+  background-image: repeating-linear-gradient(0deg, var(--c-dark-grey), var(--c-dark-grey) 1px, transparent 1px, transparent);
 }
 
 .proof__text {
@@ -635,6 +683,7 @@ img {
 
   /* align-self: center;
   justify-self: center; */
+
 }
 
 .building__container>img {
@@ -642,6 +691,7 @@ img {
   grid-column: 1;
   object-fit: contain;
   /* width: 100%; */
+
 }
 
 .building__text {
@@ -659,23 +709,10 @@ img {
 .bulding__img {
   width: 100%;
   /* opacity: 0.2; */
+  box-shadow: 83px 0px 59px 0px rgba(0, 0, 0, 1);
+
 }
 
-/* Method 1: mask-image with CSS custom properties */
-/* .mask-method {
-  --x: 150px;
-  --y: 150px;
-  --hole-size: 10rem;
-  -webkit-mask-image: radial-gradient(circle var(--hole-size) at var(--x) var(--y),
-      transparent var(--hole-size),
-      black calc(var(--hole-size) + 1px));
-  mask-image: radial-gradient(circle var(--hole-size) at var(--x) var(--y),
-      transparent var(--hole-size),
-      black calc(var(--hole-size) + 1px));
-
-  opacity: var(--opacity);
-  transition: opacity 0.2s ease;
-} */
 
 .mask-method {
   --x: 150px;
@@ -690,7 +727,6 @@ img {
       black calc(var(--hole-size) * var(--scale) + 1px));
   transition: --scale 2s ease;
   width: 100%;
-
 
 }
 
@@ -713,6 +749,7 @@ img {
   /* background-color: blue; */
   aspect-ratio: 7 / 10;
   margin: 1rem;
+  /* z-index: -3; */
 }
 
 .map__plantin {
@@ -722,10 +759,55 @@ img {
   background-size: contain;
   width: 3rem;
   height: 3rem;
+  bottom: 40%;
+  left: 25%;
+}
+
+.map__plantin::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-color: var(--c-primary);
+  border-radius: 50%;
+  animation: ping 7s ease-in-out infinite both;
+  z-index: 1;
 }
 
 
+@keyframes ping {
+  0% {
+    transform: scale(0.02);
+    opacity: 0.8;
+  }
 
+  20% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+
+  25% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.map__unlock--1,
+.map__unlock--2 {
+  opacity: 0;
+  transform: translateY(20px);
+  /* Initially moved down */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  /* position: relative; */
+
+}
 
 
 
@@ -774,7 +856,7 @@ img {
 
 
 footer {
-  background-color: #1a1a1a;
+  background-color: #1D1D1B;
   display: flex;
   flex-direction: column;
   padding: 2rem;
@@ -790,6 +872,7 @@ footer h4 {
   display: grid;
   place-content: center;
   margin-bottom: 3rem;
+  max-width: 8rem;
   /* padding: 2rem 0rem; */
 }
 
@@ -856,8 +939,8 @@ footer h4 {
   flex-direction: column;
 }
 
-.distribution::before,
-.distribution::after {
+.section--dark::before,
+.section--dark::after {
   content: '';
   position: absolute;
   opacity: 0.2;
@@ -867,12 +950,12 @@ footer h4 {
   pointer-events: none;
 }
 
-.distribution::before {
+.section--dark::before {
   top: 0;
   background: linear-gradient(to bottom, rgb(80, 80, 80), transparent);
 }
 
-.distribution::after {
+.section--dark::after {
   bottom: 0;
   background: linear-gradient(to top, rgb(80, 80, 80), transparent);
 }
@@ -921,10 +1004,11 @@ footer h4 {
 }
 
 .dist__anim {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   align-self: center;
   justify-self: center;
-
+  max-width: 2rem;
+  opacity: 0.6;
 }
 
 .dist__footer {
@@ -934,10 +1018,6 @@ footer h4 {
   /* top: 50vh; */
   position: relative;
   align-self: center;
-}
-
-.dist__footer img {
-  /* position: absolute; */
 }
 
 .dist__container--fg {
@@ -1163,11 +1243,11 @@ footer h4 {
 
 
 
-  /* .printing__body {
+  .printing__body {
     height: 90vh;
     grid-template-columns: 4fr 35rem;
     grid-template-rows: 1fr;
-  } */
+  }
 
 
 
@@ -1185,6 +1265,7 @@ footer h4 {
     display: flex;
     justify-content: center;
     gap: 3rem;
+    /* height: 100vh; */
 
     border-top: 1px dashed var(--c-primary);
     border-bottom: 1px dashed var(--c-primary);
@@ -1205,6 +1286,7 @@ footer h4 {
 
   .books__container {
     justify-content: space-evenly;
+    height: 100%;
     /* align-items: ; */
   }
 
@@ -1258,8 +1340,10 @@ footer h4 {
   }
 
   .map__plantin {
-    width: 5rem;
-    height: 5rem;
+    /* width: 5rem;
+    height: 5rem; */
+    width: 5vw;
+    height: 5vw;
   }
 
 

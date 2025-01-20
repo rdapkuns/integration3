@@ -57,6 +57,9 @@ const addSpecialCells = (cellCount, s1, s2, s3) => {
 }
 
 
+let leftPercent
+let topPercent
+
 draggableDiv.addEventListener('mousedown', (e) => {
   isDragging = true;
   offsetX = e.offsetX;
@@ -67,6 +70,7 @@ draggableDiv.addEventListener('mousedown', (e) => {
 document.addEventListener('mouseup', () => {
   isDragging = false;
   draggableDiv.style.cursor = 'grab';
+  checkPlantinPos(leftPercent, topPercent)
 });
 
 document.addEventListener('mousemove', (e) => {
@@ -86,14 +90,45 @@ document.addEventListener('mousemove', (e) => {
   draggableDiv.style.left = `${left}px`;
   draggableDiv.style.top = `${top}px`;
 
-  const leftPercent = (centerLeft / rect.width) * 100;
-  const topPercent = (centerTop / rect.height) * 100;
+  leftPercent = (centerLeft / rect.width) * 100;
+  topPercent = (centerTop / rect.height) * 100;
   // Update coordinate display
-  console.log(leftPercent.toFixed(2), topPercent.toFixed(2));
+  // console.log(leftPercent.toFixed(2), topPercent.toFixed(2));
+
+  // checkPlantinPos(leftPercent, topPercent)
 });
 
+let hasBeenToLaiden = false
+const mapUnlock1 = document.querySelectorAll(".map__unlock--1")
+const mapUnlock2 = document.querySelector(".map__unlock--2")
+
+const checkPlantinPos = (left, top) => {
+
+  if (left > 40 && top > 30) {
+    if (left < 50 && top < 40) {
+      console.log("plantin in Leiden")
+      mapUnlock1.forEach((el) => {
+        el.style.opacity = "1";
+        el.style.transform = "translateY(0)";
+      })
+      hasBeenToLaiden = true
+    }
+  }
+
+  if (left > 38 && top > 54) {
+    if (left < 50 && top < 60) {
+      if(hasBeenToLaiden == true){
+        console.log("plantin in Antwerp")
+        mapUnlock2.style.opacity = "1";
+        mapUnlock2.style.transform = "translateY(0)";
+      }
+    }
+  }
+
+}
+
 const init = () => {
-  if(width < 960){
+  if (width < 960) {
     addSpecialCells(36, 6, 27, 33);
   } else {
     addSpecialCells(110, 14, 89, 92);
