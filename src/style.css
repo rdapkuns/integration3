@@ -787,6 +787,7 @@ img {
 .map__plantin::before {
   content: '';
   position: absolute;
+  display: var(--before-display, block);
   top: -50%;
   left: -50%;
   width: 200%;
@@ -962,7 +963,7 @@ footer h4 {
 .distribution {
   border: 1px solid white;
   overflow: hidden;
-  max-height: 100vh;
+  height: 100vh;
   background-color: var(--c-bg-grey);
   position: relative;
   display: flex;
@@ -992,12 +993,18 @@ footer h4 {
 
 .dist__container--main {
   /* display: grid; */
-  height: 100vh;
+  /* height: 100vh; */
   padding: 0rem 1rem;
   /* display: flex;
   flex-direction: column; */
   display: grid;
   grid-template-rows: auto 1fr;
+
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .dist__text {
@@ -1005,6 +1012,16 @@ footer h4 {
   justify-self: center;
   /* margin: 5rem 0rem; */
   margin-top: 5rem;
+}
+
+.dist__text p{
+  padding-top: 1rem;
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.dist__text div{
+  display: grid;
 }
 
 .dist__container--bg {
@@ -1042,13 +1059,20 @@ footer h4 {
 }
 
 .dist__footer {
-  /* margin-bottom: -10%; */
+  margin-bottom: -10%;
   /* margin-top: -25%; */
-  margin-top: -20%;
+  /* margin-top: -20%; */
   /* top: 50vh; */
   position: relative;
   align-self: center;
+  display: grid;
 }
+
+.dist__book{
+  grid-row: 1;
+  grid-column: 1;
+}
+
 
 .dist__container--fg {
   grid-row: 1;
@@ -1437,6 +1461,7 @@ footer h4 {
     display: flex;
     flex-direction: row;
     gap: 1rem;
+    width: 100%;
     justify-content: space-between;
   }
 
@@ -1444,6 +1469,10 @@ footer h4 {
     background-color: var(--c-dark-grey);
     width: 10rem;
     height: 1px;
+  }
+
+  .dist__text{
+    margin-top: -5rem;
   }
 
   .dist__footer {

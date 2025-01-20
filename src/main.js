@@ -121,6 +121,7 @@ const checkPlantinPos = (left, top) => {
         console.log("plantin in Antwerp")
         mapUnlock2.style.opacity = "1";
         mapUnlock2.style.transform = "translateY(0)";
+        draggableDiv.style.setProperty('--before-display', 'none');
       }
     }
   }

@@ -89,7 +89,7 @@ gsap.utils.toArray(".press__anim").forEach(video => {
     videoScrub(video, {
         scrollTrigger: {
             trigger: sectionPrint, // Set the parent container as the trigger
-            start: "top top",
+            start: "+=50",
             end: "+=1000",
             // markers: true,
             scrub: true,
@@ -112,9 +112,114 @@ gsap.utils.toArray(".press__anim").forEach(video => {
 //     }
 // }));
 
+const distBook1 = document.querySelector(".dist__book1")
+const distBook2 = document.querySelector(".dist__book2")
+const distBook3 = document.querySelector(".dist__book3")
+const distBook4 = document.querySelector(".dist__book4")
+
+
+const distributeBooks = () => {
+    let timeline = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".distribution",
+            start: "top top",
+            end: "+=3000",
+            pin: true,
+            scrub: true,
+            markers: true
+        }
+    });
+
+    // dist__paragraph1
+
+    timeline
+        .to(distBook1, {
+            x: "+300%",
+            ease: "power2.inOut",
+        }, "+=0.2")
+        .to(".dist__paragraph1", {
+            x: "+200%",
+            opacity: 0,
+            ease: "power2.inOut",
+        }, "<")
+        .from(distBook2, {
+            y: "100%",
+            // opacity: 0,
+            ease: "power2.out",
+        }, "-=0.5")
+        .from(".dist__paragraph2", {
+            x: "-100%",
+            opacity: 0,
+            ease: "power2.inOut",
+        }, "<")
+        .to(distBook2, {
+            x: "+300%",
+            ease: "power2.inOut",
+        }, "-=0.1")
+        .to(".dist__paragraph2", {
+            x: "+200%",
+            opacity: 0,
+            ease: "power2.inOut",
+        }, "<")
+        .from(distBook3, {
+            y: "100%",
+            ease: "power2.out",
+        }, "-=0.5")
+        .from(".dist__paragraph3", {
+            x: "-100%",
+            opacity: 0,
+            ease: "power2.inOut",
+        }, "<")
+        .to(distBook3, {
+            x: "+300%",
+            ease: "power2.inOut",
+        }, "-=0.1")
+        .to(".dist__paragraph3", {
+            x: "+200%",
+            opacity: 0,
+            ease: "power2.inOut",
+        }, "<")
+        .from(distBook4, {
+            y: "100%",
+            ease: "power2.out",
+        }, "-=0.5")
+        .from(".dist__paragraph4", {
+            x: "-100%",
+            opacity: 0,
+            ease: "power2.inOut",
+        }, "<")
+        .to(distBook4, {
+            x: "+300%",
+            ease: "power2.inOut",
+        }, "-=0.1")
+
+};
+
+// gsap.to(distBook2, {
+
+//     ease: "none",
+//     transformOrigin: "top center",
+//     // scaleY: 0,
+//     y: "+30%",
+//     delay: 10,
+//     ease: "power2.inOut",
+//     scrollTrigger: {
+//         trigger: ".distribution",
+//         start: "top top",
+//         end: "+=1000",
+//         pin: true,
+//         scrub: true,
+
+
+//         // markers: true,
+//         // pin: true,
+//     },
+// });
+// }
 
 
 const init = () => {
+    distributeBooks()
     gsap.from(".progress-bar--fill", {
 
         ease: "none",
