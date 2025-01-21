@@ -90,7 +90,7 @@ gsap.utils.toArray(".press__anim").forEach(video => {
         scrollTrigger: {
             trigger: sectionPrint, // Set the parent container as the trigger
             start: "+=50",
-            end: "+=1000",
+            end: "+=3000",
             // markers: true,
             scrub: true,
             // ease: Power2.easeOut,
@@ -111,6 +111,161 @@ gsap.utils.toArray(".press__anim").forEach(video => {
 //         pin: true
 //     }
 // }));
+
+// const swapPressText = () => {
+
+//     const paragraph1 = document.querySelector(".printing_paragraph-1")
+//     const paragraph2 = document.querySelector(".printing_paragraph-2")
+//     const paragraph3 = document.querySelector(".printing_paragraph-3")
+
+
+//     let timeline = gsap.timeline({
+//         scrollTrigger: {
+//             trigger: sectionPrint,
+//             start: "+=50",
+//             end: "+=1000",
+//             // scrub: true,
+//         }
+//     });
+
+//     // dist__paragraph1
+
+//     timeline
+//         .to(paragraph1, {
+//             y: "-200%",
+//             opacity: 0,
+//             ease: "power2.inOut",
+//         }, "+=0.2")
+
+//         .from(paragraph2, {
+//             y: "100%",
+//             opacity: 0,
+//             ease: "power2.out",
+//         })
+
+//         .to(paragraph2, {
+//             y: "-200%",
+//             opacity: 0,
+//             ease: "power2.inOut",
+//         })
+
+//         .from(paragraph3, {
+//             y: "100%",
+//             opacity: 0,
+//             ease: "power2.out",
+//         })
+
+//         .to(paragraph3, {
+//             y: "-200%",
+//             opacity: 0,
+//             ease: "power2.inOut",
+//         })
+
+
+// };
+const swapPressText = () => {
+    const paragraph1 = document.querySelector(".printing_paragraph-1");
+    const paragraph2 = document.querySelector(".printing_paragraph-2");
+    const paragraph3 = document.querySelector(".printing_paragraph-3");
+
+    // Create separate timelines for each paragraph swap
+    const tl1 = gsap.timeline({ paused: true });
+    const tl2 = gsap.timeline({ paused: true });
+    const tl3 = gsap.timeline({ paused: true });
+
+    // Set up individual animations
+    tl1
+        .to(paragraph1, {
+            y: "-200%",
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.inOut",
+        })
+        .from(paragraph2, {
+            y: "100%",
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.out",
+        }, "-=0.6");
+
+    tl2
+        .to(paragraph2, {
+            y: "-200%",
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.inOut",
+        })
+        .from(paragraph3, {
+            y: "100%",
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.out",
+        }, "-=0.6");
+
+    tl3
+        .to(paragraph3, {
+            y: "-200%",
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.inOut",
+        });
+
+    // Track last progress to determine scroll direction
+    let lastProgress = 0;
+
+    // Create main ScrollTrigger
+    ScrollTrigger.create({
+        trigger: sectionPrint,
+        start: "+=50",
+        end: "+=3000",
+        onUpdate: self => {
+            const progress = self.progress;
+            const scrollingForward = progress > lastProgress;
+
+            // Forward scrolling animations
+            if (scrollingForward) {
+                // Trigger first swap at the start (0%)
+                if (progress >= 0.3 && !tl1.isActive()) {
+                    if (!tl1.progress()) {
+                        tl1.play();
+                    }
+                }
+
+                // Trigger second swap at 30%
+                if (progress >= 0.6 && !tl2.isActive()) {
+                    if (!tl2.progress()) {
+                        tl2.play();
+                    }
+                }
+
+                // Trigger third swap at 70%
+                
+            }
+            // Reverse scrolling animations
+            else {
+                // Reverse third swap at 70%
+                
+
+                // Reverse second swap at 30%
+                if (progress <= 0.6 && !tl2.isActive()) {
+                    if (tl2.progress() === 1) {
+                        tl2.reverse();
+                    }
+                }
+
+                // Reverse first swap at the start (0%)
+                if (progress <= 0.3 && !tl1.isActive()) {
+                    if (tl1.progress() === 1) {
+                        tl1.reverse();
+                    }
+                }
+            }
+
+            // Update last progress
+            lastProgress = progress;
+        }
+    });
+};
 
 const distBook1 = document.querySelector(".dist__book1")
 const distBook2 = document.querySelector(".dist__book2")
@@ -217,9 +372,56 @@ const distributeBooks = () => {
 // });
 // }
 
+let mapAnimation;
+
+const addMapWrapper = () => {
+    mapAnimation = gsap.to(".map__wrapper", {
+        ease: "none",
+        y: "+500",
+        scrollTrigger: {
+            trigger: ".map__section",
+            start: "top top",
+            end: "+=500",
+            scrub: true,
+            markers: true
+        },
+    });
+}
+
+const removeMapWrapper = () => {
+    if (mapAnimation) {
+        mapAnimation.kill();
+        mapAnimation.scrollTrigger.kill();
+        mapAnimation = null;
+    }
+}
+
+// let width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+let isWide = (window.innerWidth > 0 ? window.innerWidth : screen.width) > 960;
+
+
+const checkScreenSize = () => {
+    const wasWide = isWide;
+    const currentWidth = window.innerWidth > 0 ? window.innerWidth : screen.width;
+    isWide = currentWidth > 960;
+
+    if (wasWide !== isWide) {
+        if (isWide) {
+            // addSpecialCells(110, 14, 89, 92);
+            removeMapWrapper()
+        } else {
+            // addSpecialCells(36, 6, 27, 33);
+            console.log("is narrow")
+            addMapWrapper()
+        }
+    }
+}
+
 
 const init = () => {
     distributeBooks()
+    swapPressText()
+    window.addEventListener("resize", checkScreenSize);
     gsap.from(".progress-bar--fill", {
 
         ease: "none",
@@ -228,13 +430,16 @@ const init = () => {
         scrollTrigger: {
             trigger: ".printing",
             start: "top top",
-            end: "+=1000",
+            end: "+=3000",
             scrub: true,
 
             // markers: true,
             // pin: true,
         },
     });
+
+
+
 }
 
 init();

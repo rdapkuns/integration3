@@ -511,6 +511,15 @@ img {
   justify-self: center;
 }
 
+.printing__text--container{
+  display: grid;
+}
+
+.printing__text--container p{
+  grid-column: 1;
+  grid-row: 1;
+}
+
 .printing__note {
   display: flex;
   flex-direction: column;
@@ -757,6 +766,17 @@ img {
   align-items: center;
 }
 
+.map__wrapper {
+  width: 100%;
+  /* max-width: 300px; */
+  /* aspect-ratio: 7 / 10; */
+  background-color: white;
+  z-index: 4;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
 .map__container {
   position: relative;
   background-image: url(/assets/map.webp);
@@ -769,8 +789,8 @@ img {
   background-repeat: no-repeat;
   /* background-color: blue; */
   aspect-ratio: 7 / 10;
-  margin: 1rem;
-  /* z-index: -3; */
+  /* margin: 1rem; */
+  z-index: 3;
 }
 
 .map__plantin {
@@ -844,6 +864,34 @@ img {
   gap: 1rem;
 }
 
+.outro__image {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.outro__image--container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+}
+
+.museum__bg {
+  grid-row: 1;
+  grid-column: 1;
+  justify-self: center;
+  padding-top: 6rem;
+}
+
+.museum__img {
+  grid-row: 1;
+  grid-column: 1;
+  justify-self: center;
+  max-height: 60%;
+  z-index: 2;
+  /* padding-bottom: 3rem; */
+}
+
 .museum__comments {
   display: flex;
   width: 100%;
@@ -874,7 +922,58 @@ img {
 
 
 
+.museum__bg {
+  clip-path: inset(0 100% 0 0);
+  animation: reveal 25s infinite;
+}
 
+.museum__bg:nth-child(1) {
+  animation-name: reveal;
+  animation-delay: 0s;
+}
+
+.museum__bg:nth-child(2) {
+  animation-name: reveal;
+  animation-delay: 5s;
+}
+
+.museum__bg:nth-child(3) {
+  animation-name: reveal;
+  animation-delay: 10s;
+}
+
+.museum__bg:nth-child(4) {
+  animation-name: reveal;
+  animation-delay: 15s;
+}
+
+.museum__bg:nth-child(5) {
+  animation-name: reveal;
+  animation-delay: 20s;
+}
+
+
+
+@keyframes reveal {
+
+  0%,
+  20% {
+    clip-path: inset(0 100% 0 0);
+    /* Hidden */
+  }
+
+  25%,
+  45% {
+    clip-path: inset(0 0 0 0);
+    /* Fully revealed */
+  }
+
+  50%,
+  100% {
+    clip-path: inset(0 100% 0 0);
+    /* Hidden again */
+  }
+}
 
 
 footer {
@@ -921,11 +1020,9 @@ footer h4 {
   gap: 0.5rem;
 }
 
-.contact__container li {
+.contact__container li {}
 
-}
-
-.contact__email{
+.contact__email {
   display: flex;
   flex-wrap: wrap;
 }
@@ -1014,13 +1111,13 @@ footer h4 {
   margin-top: 5rem;
 }
 
-.dist__text p{
+.dist__text p {
   padding-top: 1rem;
   grid-row: 1;
   grid-column: 1;
 }
 
-.dist__text div{
+.dist__text div {
   display: grid;
 }
 
@@ -1068,7 +1165,7 @@ footer h4 {
   display: grid;
 }
 
-.dist__book{
+.dist__book {
   grid-row: 1;
   grid-column: 1;
 }
@@ -1471,7 +1568,7 @@ footer h4 {
     height: 1px;
   }
 
-  .dist__text{
+  .dist__text {
     margin-top: -5rem;
   }
 

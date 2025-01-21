@@ -30,7 +30,7 @@ const createElements = (cellCount) => {
 }
 
 
-function checkScreenSize() {
+const checkScreenSize = () => {
   const wasWide = isWide;
   const currentWidth = window.innerWidth > 0 ? window.innerWidth : screen.width;
   isWide = currentWidth > 960;
