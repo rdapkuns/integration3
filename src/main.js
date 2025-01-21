@@ -1,7 +1,5 @@
 import './reset.css'
 import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.js'
 
 
@@ -92,10 +90,6 @@ document.addEventListener('mousemove', (e) => {
 
   leftPercent = (centerLeft / rect.width) * 100;
   topPercent = (centerTop / rect.height) * 100;
-  // Update coordinate display
-  // console.log(leftPercent.toFixed(2), topPercent.toFixed(2));
-
-  // checkPlantinPos(leftPercent, topPercent)
 });
 
 let hasBeenToLaiden = false
@@ -117,7 +111,7 @@ const checkPlantinPos = (left, top) => {
 
   if (left > 38 && top > 54) {
     if (left < 50 && top < 60) {
-      if(hasBeenToLaiden == true){
+      if (hasBeenToLaiden == true) {
         console.log("plantin in Antwerp")
         mapUnlock2.style.opacity = "1";
         mapUnlock2.style.transform = "translateY(0)";
@@ -128,7 +122,116 @@ const checkPlantinPos = (left, top) => {
 
 }
 
+const toolInfo = {
+  ink: "Correct! Ink brings the words to life. It was made from linseed oil and soot, creating a rich, durable black.",
+  paper: "Exactly! Paper is essential for printing all the text. In Plantin's time, sheets were often handmade and featured distinct watermarks.",
+  icecream: "No, the printing office was no place for icecream. The workplace must remain clean as to avoid staining the paper",
+  scissors: "No, scissors werent an essential tool for the book printing process",
+  headphones: "Incorrect! Headphones weren't invented until 20th century. And hearing your colleague is essential to not making any errors in your work!",
+  press: "That's right! The printing press is the heart of the operation, pressing ink onto paper with precision. Its design revolutionized bookmaking in the 16th century.",
+  measuring: "Right! The composing stick holds the letters as they're arranged into lines. It's a crucial tool for typesetting.",
+  type: "That's it! Movable type allows printers to arrange and rearrange letters. Each piece was cast from a durable metal alloy.",
+  brayer: "Well done! A brayer spreads the ink evenly over the type. Consistent inking ensures a clear and sharp print.",
+};
+
+const storyInfo = [
+  "The story of Christophe Plantin begins like the assembly of a workshop: piece by piece, each part carefully chosen and fitted to serve a greater purpose. Born in 1520 in Saint-Avertin, France, Plantin's early life provided the raw materials for his future success. He trained as a bookbinder and leatherworker, learning the precision and patience that would later define his printing career",
+  "The first piece of Plantin's “workplace” fell into place when he moved to Paris in the 1540s. Paris was a city buzzing with the intellectual energy of the Renaissance. A hive of scholars, artisans, and merchants. It was here that Plantin first encountered the printing press, a revolutionary machine reshaping the distribution of knowledge.",
+  "In 1549, Plantin made another critical move, relocating to Antwerp. The city was like a bustling workshop itself, a major port where ideas, goods, and people converged. Antwerp was also home to an emerging network of printers and booksellers, making it the ideal place for Plantin to lay the foundations of his own career.",
+  "The cornerstone of Plantin's printing enterprise was laid in 1555 when he established his first workshop, Officina Plantiniana. Starting with just a single press, Plantin's early output was modest: almanacs, religious texts, and small pamphlets. Already, his meticulous craftsmanship was evident. Every book was like a finished piece from the workshop, polished and precise, earning him a growing reputation for quality.",
+  "Setting up a printing press required more than tools and talent—it demanded resources and connections. Plantin found his early patrons in Antwerp's mercantile elite, including Gilbert van Schoonbeke, who provided the financial backing necessary to acquire essential materials: presses, movable type, and fine paper.",
+  "By the late 1550s, the framework of Plantin's workshop was complete. His business began to attract larger commissions, and his books found an audience beyond Antwerp",
+  "As Plantin's reputation grew, so did his ambition. He began seeking not only to produce books but to create works of enduring significance—texts that would showcase his workshop's unparalleled quality. This drive led him to cultivate relationships with scholars and translators, ensuring his publications were not just beautifully crafted but also brimming with knowledge."
+];
+
+const clickedButtons = new Set();
+let infoProgress = 0
+
+const toolHeading = document.querySelector(".setting__text--heading")
+const toolText = document.querySelector(".text--tool")
+const storyText = document.querySelector(".text--story")
+const toolAmount = document.querySelector(".tool__amount")
+const toolContainer = document.querySelector(".setting__control")
+
+const handleToolClick = (dataId, useful) => {
+
+  toolContainer.style.backgroundPosition = "800% 50%";
+  // toolContainer.style.backgroundImage = `url('/assets/tools/${dataId}.png')`;
+  // toolContainer.style.backgroundPosition = "300px 0px";
+
+
+  setTimeout(() => {
+    if(useful === "true"){
+
+      toolContainer.style.backgroundImage = `url('/assets/tools/${dataId}.png')`;
+      toolContainer.style.backgroundPosition = "250% 50%";
+    } else{
+      toolContainer.style.backgroundImage = `url('/assets/tools/blank.png')`;
+    }
+
+  }, 500);
+
+  toolHeading.textContent = dataId
+
+
+  if (clickedButtons.has(dataId)) {
+    console.log(`Button with id ${dataId} has already been clicked.`);
+    return;
+  }
+
+  toolText.classList.add('hidden');
+  storyText.classList.add('hidden');
+
+  clickedButtons.add(dataId);
+
+  setTimeout(() => {
+    // Update the text
+    toolText.textContent = toolInfo[dataId];
+    if (useful === "true") {
+      infoProgress++;
+    }
+    storyText.textContent = storyInfo[infoProgress];
+
+    if (useful === "false") {
+      storyText.textContent = "Try again"
+    }
+    // Fade in the new text
+    toolText.classList.remove('hidden');
+    storyText.classList.remove('hidden');
+  }, 500);
+  
+
+  // toolAmount.textContent = 6 - infoProgress
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const init = () => {
+
+  const tools = document.querySelectorAll('.tool');
+
+  tools.forEach(tool => {
+    tool.addEventListener('click', () => {
+      const id = tool.dataset.id;
+      const useful = tool.dataset.useful;
+      handleToolClick(id, useful);
+    });
+  });
+
+
   if (width < 960) {
     addSpecialCells(36, 6, 27, 33);
   } else {
