@@ -31,15 +31,30 @@ const createElements = (cellCount) => {
 const checkScreenSize = () => {
   const wasWide = isWide;
   const currentWidth = window.innerWidth > 0 ? window.innerWidth : screen.width;
+  width = window.innerWidth > 0 ? window.innerWidth : screen.width;
   isWide = currentWidth > 960;
 
   if (wasWide !== isWide) {
     if (isWide) {
       addSpecialCells(110, 14, 89, 92);
+      setProofHTML(true)
     } else {
       addSpecialCells(36, 6, 27, 33);
+      setProofHTML(false)
     }
   }
+
+  const proofComments = document.querySelectorAll(".proof__mistake")
+  proofComments.forEach((comment) => {
+    comment.addEventListener(
+      "click",
+      (event) => {
+        const target = comment.dataset.target;
+        revealComment(target, event);
+      },
+      { once: true }
+    );
+  });
 }
 
 const addSpecialCells = (cellCount, s1, s2, s3) => {
@@ -161,11 +176,11 @@ const handleToolClick = (dataId, useful) => {
 
 
   setTimeout(() => {
-    if(useful === "true"){
+    if (useful === "true") {
 
       toolContainer.style.backgroundImage = `url('/assets/tools/${dataId}.png')`;
       toolContainer.style.backgroundPosition = "250% 50%";
-    } else{
+    } else {
       toolContainer.style.backgroundImage = `url('/assets/tools/blank.png')`;
     }
 
@@ -199,7 +214,7 @@ const handleToolClick = (dataId, useful) => {
     toolText.classList.remove('hidden');
     storyText.classList.remove('hidden');
   }, 500);
-  
+
 
   // toolAmount.textContent = 6 - infoProgress
 }
@@ -208,9 +223,119 @@ const handleToolClick = (dataId, useful) => {
 
 
 
+const setProofHTML = (width) => {
+  const container = document.querySelector(".proof__body")
 
+  if (width === false) {
+    console.log("itssswide")
+    container.innerHTML = `
+            <p class="proof__comment proof__comment--1">Plantin's workshop employed highly skilled proofreaders known as 'correctors,' who were tasked with
+              maintaining the
+              highest quality. One of his most famous correctors was Cornelis Kiliaan, who later compiled one of the
+              first Dutch
+              dictionaries.</p>
+          <p class="proof__text">
+            Proofreading in Christophe Plantin's workschop was a task of vigilance. Every page had to be scurtinized for
+            errors
+            before <span data-target="proof__comment--1" class="proof__mistake">itleft</span> the press. A misplaced leter, a missing mark, or a smudged line could compromise the integrity
+            of the
+            text. For Plantin, however, the act of proofreading extended beyond the printed page. In an era marked by
+            religious
+            upheaval and censorship, his entire career <span data-target="proof__comment--2"
+              class="proof__mistake">reqiured</span> careful revision and adjustment to avoid the “errors”
+            that could
+            <span data-target="proof__comment--3" class="proof__mistake proof__mistake--smudge">endenger</span> his work or even life.
+          </p>
+            <p class="proof__comment proof__comment--2">All printed works had to comply with the Index Librorum Prohibitorum, a list of banned books maintained
+              by the Catholic
+              Church. Failure to adhere to these restrictions could result in severe penalties.</p>
+            <p class="proof__comment proof__comment--3">Smudging could occur if the ink wasn't applied evenly or if the paper moved during printing. Plantin
+              addressed these
+              issues by investing in high-quality presses and training his workers to handle the equipment with
+              precision.</p>
+          `
+  } if (width === true) {
+    console.log("narrow")
+    container.innerHTML = `<p class="proof__text">
+            Proofreading in Christophe Plantin's workschop was a task of vigilance. Every page had to be scurtinized for
+            errors
+            before<span data-target="proof__comment--1" class="proof__mistake">itleft</span> the press. A
+            misplaced leter, a missing mark, or a smudged line could compromise the integrity
+            of the
+            text. For Plantin, however, the act of proofreading extended beyond the printed page. In an era marked by
+            religious
+            upheaval and censorship, his entire career <span data-target="proof__comment--2"
+              class="proof__mistake">reqiured</span> careful revision and
+            adjustment to avoid the “errors”
+            that could
+            <span data-target="proof__comment--3" class="proof__mistake proof__mistake--smudge">endenger</span> his work or even life.
+          </p>
+          <div class="proof__comments">
+            <p class="proof__comment proof__comment--1">Plantin's workshop employed highly skilled proofreaders known as
+              'correctors,' who were tasked with
+              maintaining the
+              highest quality. One of his most famous correctors was Cornelis Kiliaan, who later compiled one of the
+              first Dutch
+              dictionaries.</p>
+            <p class="proof__comment proof__comment--2">All printed works had to comply with the Index Librorum
+              Prohibitorum, a list of banned books maintained
+              by the Catholic
+              Church. Failure to adhere to these restrictions could result in severe penalties.</p>
+            <p class="proof__comment proof__comment--3">Smudging could occur if the ink wasn't applied evenly or if the
+              paper moved during printing. Plantin
+              addressed these
+              issues by investing in high-quality presses and training his workers to handle the equipment with
+              precision.</p></div>`
+  }
 
+}
 
+let proofComments = document.querySelectorAll(".proof__mistake")
+let mistakesFound = 0
+let mistakeCounter = document.querySelector(".mistake__counter")
+
+const revealComment = (target, event) => {
+  const targetMistake = event.target
+  targetMistake.classList.add(".proof__mistake__found")
+
+  const targetComment = document.querySelector(`.${target}`)
+  targetComment.style.opacity = "1";
+  targetComment.style.transform = "translateY(0)";
+  const commentHeight = targetComment.getBoundingClientRect().height
+  if (width < 960) {
+    moveVisibleComments(commentHeight)
+  }
+  targetComment.classList.add("proof__comment--visible")
+  mistakesFound++
+
+  mistakeCounter.textContent = 3 - mistakesFound
+}
+
+let moveCommentDistance = 0
+
+const moveVisibleComments = (distance) => {
+  const visibleComments = document.querySelectorAll(".proof__comment--visible");
+
+  visibleComments.forEach((comment) => {
+    // Get the current transform value and extract the Y-translation
+    const currentTransform = getComputedStyle(comment).transform;
+    let currentY = 0;
+
+    if (currentTransform !== "none") {
+      const matrix = currentTransform.match(/matrix.*\((.+)\)/);
+      if (matrix) {
+        currentY = parseFloat(matrix[1].split(", ")[5]); // Extract the Y-translation from the matrix
+      }
+    }
+
+    // Apply the new translation distance cumulatively
+    const newY = currentY + distance + 12; // Adding a gap of 12px
+    comment.style.transform = `translateY(${newY}px)`;
+  });
+
+  // Update the global distance tracker
+  moveCommentDistance += distance + 12; // Add the distance and the gap
+};
 
 
 
@@ -220,6 +345,10 @@ const handleToolClick = (dataId, useful) => {
 
 
 const init = () => {
+
+
+
+
 
   const tools = document.querySelectorAll('.tool');
 
@@ -234,9 +363,27 @@ const init = () => {
 
   if (width < 960) {
     addSpecialCells(36, 6, 27, 33);
+    setProofHTML(true)
   } else {
     addSpecialCells(110, 14, 89, 92);
+    setProofHTML(false)
   }
+
+
+  proofComments = document.querySelectorAll(".proof__mistake")
+
+  proofComments.forEach((comment) => {
+    comment.addEventListener(
+      "click",
+      (event) => {
+        const target = comment.dataset.target;
+        revealComment(target, event);
+      },
+      { once: true }
+    );
+  });
+
+
   window.addEventListener("resize", checkScreenSize);
 
   maskContainer.addEventListener('mouseenter', () => {
