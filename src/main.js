@@ -223,6 +223,7 @@ const handleToolClick = (dataId, useful) => {
 
 
 
+
 const setProofHTML = (width) => {
   const container = document.querySelector(".proof__body")
 
@@ -337,10 +338,81 @@ const moveVisibleComments = (distance) => {
   moveCommentDistance += distance + 12; // Add the distance and the gap
 };
 
+const bibleInfo = [
+  "Commissioned by King Philip II of Spain, the Polyglot Bible was a multilingual masterpiece. It featured the text of the Bible in Hebrew, Greek, Latin, Syriac, and Aramaic, spread across eight massive volumes. This work wasn't merely a display of linguistic scholarship; it was also a political and religious statement, reinforcing Catholic authority in an era of Protestant Reformation.",
+  "Printing the Polyglot Bible was akin to building a cathedral, one stone—or in this case, one page—at a time. Each page had to be perfect, free of smudges, alignment errors, or inconsistencies. Plantin's presses hummed with activity as they worked to produce a work that was as much a technical marvel as it was a scholarly one.",
+  "While the Polyglot Bible was Plantin's crowning achievement, his workshop produced a wide range of works that spread knowledge across Europe. These included Religious Texts, Scientific Works, Humanist Literature",
+];
+
+let bibleProgress = 0
+
+const handleBibleParagraph = (arg) => {
+
+  if (bibleProgress === 0 && arg === -1) {
+    return
+  }
+
+  if (bibleProgress === 2 && arg === 1) {
+    return
+  }
+
+  const progressDots = document.querySelectorAll('.progress__dot');
+  progressDots.forEach((dot) => {
+    dot.classList.remove("progress__dot--current")
+  })
+  const bibleParagraph = document.querySelector(".bible__description--body")
+  // bibleProgress = bibleProgress + arg
+  bibleProgress = Math.min(Math.max(bibleProgress + arg, 0), bibleInfo.length - 1);
+
+
+  bibleParagraph.style.opacity = "0";
+  if (arg === 1) {
+    bibleParagraph.style.transform = "translateX(-20%)";
+  } else {
+    bibleParagraph.style.transform = "translateX(+20%)";
+  }
+
+  setTimeout(() => {
+    if (arg === 1) {
+      bibleParagraph.style.transform = "translateX(+20%)";
+    } else {
+      bibleParagraph.style.transform = "translateX(-20%)";
+    }
+  }, 250);
+
+
+  setTimeout(() => {
+    bibleParagraph.innerHTML = bibleInfo[bibleProgress]
+    bibleParagraph.style.opacity = "1";
+    bibleParagraph.style.transform = "translateX(0)";
+  }, 500);
+  progressDots[bibleProgress].classList.add("progress__dot--current")
+
+  if (bibleProgress > 1) {
+    buttonBibleNext.innerHTML = `<svg width="21" height="26" viewBox="0 0 21 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0L21 13L0 26L9.41177 13L0 0Z" fill="#BDBDBD"/>
+</svg>`
+  } else {
+    buttonBibleNext.innerHTML = `<svg width="21" height="26" viewBox="0 0 21 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0L21 13L0 26L9.41177 13L0 0Z" fill="#B20C3B"/>
+</svg>`
+  }
+
+  if (bibleProgress < 1) {
+    buttonBiblePrev.innerHTML = `<svg width="21" height="26" viewBox="0 0 21 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M21 0L0 13L21 26L11.5882 13L21 0Z" fill="#BDBDBD"/>
+</svg>`
+  } else {
+    buttonBiblePrev.innerHTML = `<svg width="21" height="26" viewBox="0 0 21 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M21 0L0 13L21 26L11.5882 13L21 0Z" fill="#B20C3B"/>
+</svg>`
+  }
+}
 
 
 
-
+const buttonBibleNext = document.querySelector(".bible__progress--next")
+const buttonBiblePrev = document.querySelector(".bible__progress--prev")
 
 
 
@@ -382,6 +454,17 @@ const init = () => {
       { once: true }
     );
   });
+
+
+
+  buttonBibleNext.addEventListener('click', () => {
+    handleBibleParagraph(1);
+  });
+
+  buttonBiblePrev.addEventListener('click', () => {
+    handleBibleParagraph(-1);
+  });
+
 
 
   window.addEventListener("resize", checkScreenSize);

@@ -392,14 +392,24 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0rem 1rem;
 }
 
 
-.container__extraviews {
+/* .container__extraviews {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   align-items: center;
   justify-content: center;
+  border-left: 1px solid var(--c-primary);
+} */
+
+.container__extraviews {
+  padding: 0rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   border-left: 1px solid var(--c-primary);
 }
 
@@ -700,6 +710,7 @@ img {
   grid-template-rows: auto auto auto;
   gap: 1rem;
   width: 100%;
+  /* padding: 0rem 1rem; */
 }
 
 .bible__animation--container {
@@ -716,7 +727,9 @@ img {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+
   /* padding-left: 1rem; */
+  /* padding: 0rem 1rem; */
 }
 
 .bible__img {
@@ -742,34 +755,99 @@ img {
   height: fit-content;
 }
 
+.bible__description--heading {
+  position: relative;
+}
+
+.bible__description--body {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.bible__description {
+  min-height: 10rem;
+}
 
 .book__anim {
   max-width: 3rem;
 }
 
 .bible__stats {
-  display: flex;
-  align-items: center;
+  /* display: flex;
+  align-items: center; */
+  display: grid;
+  grid-template-columns: 1rem 1fr;
+  /* align-self: center; */
+}
+
+.bible__stats ul{
+  /* display: flex;
+  align-items: center; */
+  /* display: grid;
+  grid-template-columns: 1rem 1fr; */
+  align-self: center;
+}
+
+.arrow--vert{
+  /* background-color: green; */
+  background-image: url(/assets/arrow-vert.svg);
+  background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .progress__container {
   display: flex;
   gap: 5rem;
   /* width: 10rem; */
-  height: 0.5rem;
+  padding: 1rem;
+  /* height: 0.5rem; */
+  /* justify-content: center; */
+  align-items: center;
 }
 
 .progress__dot {
   background-color: var(--c-dark-grey);
   width: 0.5rem;
-  height: 100%;
+  height: 0.5rem;
+  /* height: 100%; */
   border-radius: 100px 100px;
 }
 
 .progress__dot--current {
   background-color: var(--c-primary);
+  animation: pulsate-fwd 0.8s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
 }
 
+@keyframes pulsate-fwd {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.8);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.bible__progress {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  /* animation: beat 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both; */
+}
+
+.bible__progress:hover {
+  transform: scale(1.2);
+  /* Slightly enlarges the element */
+}
+
+.bible__progress:focus {
+  animation: beat 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
 
 .proof__header {
   display: flex;
@@ -1531,10 +1609,24 @@ footer h4 {
     grid-column: 2;
     grid-row: 1;
     align-items: start;
+    /* align-self: start; */
     justify-content: center;
+    padding: 0rem 5rem;
   }
 
+  .container__extraviews {
+    padding: 0rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
+  .container__mainimg {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
 
   .typecase {
@@ -1613,11 +1705,12 @@ footer h4 {
 
 
   .bible__body {
-    height: 100vh;
+    /* height: 100vh; */
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
     gap: 1rem;
+    padding: 1rem;
   }
 
   .bible__img {

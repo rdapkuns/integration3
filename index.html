@@ -3,9 +3,9 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/vite.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Christophe Plantin</title>
 </head>
 
@@ -17,7 +17,7 @@
       <div class="space"></div>
       <p>Labore et constantia</p>
       <div class="line"></div>
-      <img src="/assets/logo.webp" width="70">
+      <img src="/assets/logo.webp" width="70" alt="plantin moretus logo">
     </div>
     <h1>Christophe Plantin</h1>
     <img class="christophe" src="/assets/placeh.jpg">
@@ -234,13 +234,13 @@
       <div class="typesetting__body">
         <div class="container__mainimg">
           <p class="comment">movable type block</p>
-          <img src="/assets/placeh.jpg">
+          <img src="/assets/type-q.webp" alt="movable type">
           <p class="comment">materials include lead, tin, antimony</p>
         </div>
         <div class="container__extraviews">
-          <img src="/assets/placeh.jpg" width="50">
-          <img src="/assets/placeh.jpg" width="50">
-          <img src="/assets/placeh.jpg" width="50">
+          <img src="/assets/type-side.webp" alt="movable type">
+          <img src="/assets/type-front.webp" alt="movable type">
+          <img src="/assets/type-top.webp" alt="movable type">
         </div>
         <div class="container__text">
           <h3>Crafting the words</h3>
@@ -365,7 +365,7 @@
       <h2 class="visually-hidden">Bible</h2>
       <div class="bible__body">
         <div class="bible__text">
-          <!-- <div class="bible__animation--container">
+          <div class="bible__animation--container">
             <video autoplay loop muted class="book__anim">
               <source src="/assets/book.webm" type="video/webm">
               Your browser does not support the video tag.
@@ -401,10 +401,11 @@
               <source src="/assets/book.webm" type="video/webm">
               Your browser does not support the video tag.
             </video>
-          </div> -->
+          </div>
           <div class="bible__description">
             <h3 class="bible__description--heading">Polyglot Bible</h3>
-            <p>Commissioned by King Philip II of Spain, the Polyglot Bible was a multilingual masterpiece. It featured
+            <p class="bible__description--body">Commissioned by King Philip II of Spain, the Polyglot Bible was a
+              multilingual masterpiece. It featured
               the text of the
               Bible in Hebrew, Greek, Latin, Syriac, and Aramaic, spread across eight massive volumes. This work wasn’t
               merely a
@@ -430,6 +431,8 @@
                 d="M4.35355 0.646447C4.15829 0.451184 3.84171 0.451184 3.64645 0.646447L0.464466 3.82843C0.269204 4.02369 0.269204 4.34027 0.464466 4.53553C0.659728 4.7308 0.976311 4.7308 1.17157 4.53553L4 1.70711L6.82843 4.53553C7.02369 4.7308 7.34027 4.7308 7.53553 4.53553C7.7308 4.34027 7.7308 4.02369 7.53553 3.82843L4.35355 0.646447ZM3.64645 813.354C3.84171 813.549 4.15829 813.549 4.35355 813.354L7.53553 810.172C7.7308 809.976 7.7308 809.66 7.53553 809.464C7.34027 809.269 7.02369 809.269 6.82843 809.464L4 812.293L1.17157 809.464C0.976311 809.269 0.659728 809.269 0.464466 809.464C0.269204 809.66 0.269204 809.976 0.464466 810.172L3.64645 813.354ZM3.5 1L3.5 813L4.5 813L4.5 1L3.5 1Z"
                 fill="#B20C3B" />
             </svg> -->
+            <div class="arrow--vert">
+            </div>
             <ul class="comment">
               <li>8 volumes</li>
               <li>2000+ pages each</li>
@@ -440,9 +443,19 @@
           </div>
         </div>
         <div class="progress__container">
+          <button class="bible__progress bible__progress--prev">
+            <svg width="21" height="26" viewBox="0 0 21 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M21 0L0 13L21 26L11.5882 13L21 0Z" fill="#BDBDBD" />
+            </svg>
+          </button>
           <div class="progress__dot progress__dot--current"></div>
           <div class="progress__dot"></div>
           <div class="progress__dot"></div>
+          <button class="bible__progress bible__progress--next">
+            <svg width="21" height="26" viewBox="0 0 21 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 0L21 13L0 26L9.41177 13L0 0Z" fill="#B20C3B" />
+            </svg>
+          </button>
         </div>
       </div>
 
@@ -455,7 +468,8 @@
       <div class="proof__container">
         <div class="proof__header">
           <h3>Navigating the fine line</h3>
-          <p class="info">Find the remaining <span class="info--highlight mistake__counter">3</span> errors in the text below</p>
+          <p class="info">Find the remaining <span class="info--highlight mistake__counter">3</span> errors in the text
+            below</p>
         </div>
         <div class="proof__body">
           <!-- <div class="proof__comment proof__comment--1">
@@ -514,7 +528,8 @@
               become.</p>
           </div>
           <div class="container" id="mask-container">
-            <img src="/assets/museumlight.webp" class="image mask-method building__img" id="mask-image">
+            <img src="/assets/museumlight.webp" class="image mask-method building__img" id="mask-image"
+              alt="the front of museum">
           </div>
         </div>
       </div>
@@ -648,10 +663,10 @@
           </div>
         </div>
         <div class="dist__footer">
-          <img class="dist__book dist__book4" src="/assets/book-low.webp">
-          <img class="dist__book dist__book3" src="/assets/book-low.webp">
-          <img class="dist__book dist__book2" src="/assets/book-low.webp">
-          <img class="dist__book dist__book1" src="/assets/book-low.webp">
+          <img class="dist__book dist__book4" src="/assets/book-low.webp" alt="close up of a book">
+          <img class="dist__book dist__book3" src="/assets/book-low.webp" alt="close up of a book">
+          <img class="dist__book dist__book2" src="/assets/book-low.webp" alt="close up of a book">
+          <img class="dist__book dist__book1" src="/assets/book-low.webp" alt="close up of a book">
         </div>
       </div>
 
