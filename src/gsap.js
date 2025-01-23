@@ -10,27 +10,14 @@ gsap.registerPlugin(ScrollTrigger);
 // ffmpeg -i ~/Downloads/Toshiba\ video/original.mov -vf scale=960:-1 -movflags faststart -vcodec libx264 -crf 20 -g 1 -pix_fmt yuv420p output_960.mp4
 
 
+
+
+
+
+
+
 const sectionPrint = document.querySelector(".printing")
 
-// const videoScrub = (video, vars) => {
-//     video = gsap.utils.toArray(video)[0]; // in case selector text is fed in.
-//     let once = (el, event, fn) => {
-//         let onceFn = function () {
-//             el.removeEventListener(event, onceFn);
-//             fn.apply(this, arguments);
-//         };
-//         el.addEventListener(event, onceFn);
-//         return onceFn;
-//     },
-//         prepFunc = () => { video.play(); video.pause(); },
-//         prep = () => once(document.documentElement, "touchstart", prepFunc),
-//         src = video.currentSrc || video.src,
-//         tween = gsap.fromTo(video, { currentTime: 0 }, { paused: true, immediateRender: false, currentTime: video.duration || 1, ease: "none", ...vars }),
-//         resetTime = () => (tween.vars.currentTime = video.duration || 1) && tween.invalidate();
-//     prep();
-//     video.readyState ? resetTime() : once(video, "loadedmetadata", resetTime);
-//     return tween;
-// }
 
 const videoScrub = (video, vars) => {
     video = gsap.utils.toArray(video)[0]; // In case selector text is fed in.
@@ -239,12 +226,12 @@ const swapPressText = () => {
                 }
 
                 // Trigger third swap at 70%
-                
+
             }
             // Reverse scrolling animations
             else {
                 // Reverse third swap at 70%
-                
+
 
                 // Reverse second swap at 30%
                 if (progress <= 0.6 && !tl2.isActive()) {

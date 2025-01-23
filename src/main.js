@@ -38,9 +38,11 @@ const checkScreenSize = () => {
     if (isWide) {
       addSpecialCells(110, 14, 89, 92);
       setProofHTML(true)
+      setBibleHTML(false)
     } else {
       addSpecialCells(36, 6, 27, 33);
       setProofHTML(false)
+      setBibleHTML(true)
     }
   }
 
@@ -64,6 +66,9 @@ const addSpecialCells = (cellCount, s1, s2, s3) => {
   let special1 = document.querySelector(`.cell--${s1}`)
   let special2 = document.querySelector(`.cell--${s2}`)
   let special3 = document.querySelector(`.cell--${s3}`)
+  special1.classList.add("cell--special--1")
+  special2.classList.add("cell--special--2")
+  special3.classList.add("cell--special--3")
   special1.classList.add("cell--special")
   special2.classList.add("cell--special")
   special3.classList.add("cell--special")
@@ -297,7 +302,7 @@ let mistakeCounter = document.querySelector(".mistake__counter")
 
 const revealComment = (target, event) => {
   const targetMistake = event.target
-  targetMistake.classList.add(".proof__mistake__found")
+  targetMistake.classList.add("proof__mistake__found")
 
   const targetComment = document.querySelector(`.${target}`)
   targetComment.style.opacity = "1";
@@ -310,6 +315,11 @@ const revealComment = (target, event) => {
   mistakesFound++
 
   mistakeCounter.textContent = 3 - mistakesFound
+
+  if (mistakesFound === 3){
+    const proofInfo = document.querySelector(".proof__info")
+    proofInfo.innerHTML = `<span class="info--highlight">Well done!</span> All errors have been found`
+  }
 }
 
 let moveCommentDistance = 0
@@ -337,6 +347,60 @@ const moveVisibleComments = (distance) => {
   // Update the global distance tracker
   moveCommentDistance += distance + 12; // Add the distance and the gap
 };
+
+
+
+const setBibleHTML = (arg) => {
+  const animationContainer = document.querySelector(".bible__animation--container")
+  if (arg === false) {
+
+
+    animationContainer.innerHTML = `
+            <video autoplay loop muted class="book__anim">
+              <source src="/assets/book.webm" type="video/webm">
+              Your browser does not support the video tag.
+            </video>
+            <video autoplay loop muted class="book__anim">
+              <source src="/assets/book.webm" type="video/webm">
+              Your browser does not support the video tag.
+            </video>
+
+            <video autoplay loop muted class="book__anim">
+              <source src="/assets/book.webm" type="video/webm">
+              Your browser does not support the video tag.
+            </video>
+            <video autoplay loop muted class="book__anim">
+              <source src="/assets/book.webm" type="video/webm">
+              Your browser does not support the video tag.
+            </video>
+
+            <video autoplay loop muted class="book__anim">
+              <source src="/assets/book.webm" type="video/webm">
+              Your browser does not support the video tag.
+            </video>
+            <video autoplay loop muted class="book__anim">
+              <source src="/assets/book.webm" type="video/webm">
+              Your browser does not support the video tag.
+            </video>
+
+            <video autoplay loop muted class="book__anim">
+              <source src="/assets/book.webm" type="video/webm">
+              Your browser does not support the video tag.
+            </video>
+            <video autoplay loop muted class="book__anim">
+              <source src="/assets/book.webm" type="video/webm">
+              Your browser does not support the video tag.
+            </video>
+  `
+  }
+
+  if (arg === true) {
+    animationContainer.innerHTML = ``
+  }
+}
+
+
+
 
 const bibleInfo = [
   "Commissioned by King Philip II of Spain, the Polyglot Bible was a multilingual masterpiece. It featured the text of the Bible in Hebrew, Greek, Latin, Syriac, and Aramaic, spread across eight massive volumes. This work wasn't merely a display of linguistic scholarship; it was also a political and religious statement, reinforcing Catholic authority in an era of Protestant Reformation.",
@@ -416,11 +480,42 @@ const buttonBiblePrev = document.querySelector(".bible__progress--prev")
 
 
 
+const slideTypecase = () => {
+  const typecase = document.querySelector(".typecase")
+  typecase.style.transform = "translateY(0)";
+  typecase.style.opacity = "1";
+  console.log("AAAA")
+}
+
+
+
+
+const typecaseSection = document.querySelector('.typecase__section'); // Replace with your target selector
+
+// Create the Intersection Observer
+const observer = new IntersectionObserver(
+  ([entry]) => {
+    if (entry.isIntersecting) {
+      slideTypecase()
+      observer.unobserve(typecaseSection); // Stop observing after first trigger
+    }
+  },
+  { threshold: 0.95 } // Trigger when 10% of the element is visible
+);
+
+// Observe the single target element
+observer.observe(typecaseSection);
+
+
+
+
+
+
+
+
+
+
 const init = () => {
-
-
-
-
 
   const tools = document.querySelectorAll('.tool');
 
@@ -436,9 +531,11 @@ const init = () => {
   if (width < 960) {
     addSpecialCells(36, 6, 27, 33);
     setProofHTML(true)
+    setBibleHTML(true)
   } else {
     addSpecialCells(110, 14, 89, 92);
     setProofHTML(false)
+    setBibleHTML(false)
   }
 
 

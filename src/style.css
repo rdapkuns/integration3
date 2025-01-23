@@ -435,6 +435,10 @@ img {
   /* place-content: center; */
   justify-content: center;
   align-items: center;
+  /* position: relative;
+  transform: translateY(-100vh);
+  opacity: 0;
+  transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.01s ease; */
 }
 
 .typecase__wrapper>div:nth-child(1) {
@@ -464,10 +468,9 @@ img {
 
 .typecase__wrapper>div:nth-child(5) {
   background-color: transparent;
-  /* opacity: 0.8; */
-  background: repeating-linear-gradient(-45deg, var(--c-light-grey), var(--c-light-grey) 3px, transparent 3px, transparent 25px);
+  background: repeating-linear-gradient(-45deg, var(--c-light-grey), var(--c-light-grey) 6px, transparent 6px, transparent 12px);
   animation: panBackground 2s linear infinite;
-  background-size: 100% 100%;
+  background-size: 18px 18px;
 }
 
 @keyframes panBackground {
@@ -476,8 +479,7 @@ img {
   }
 
   to {
-    background-position: 35px 0;
-    /* Adjust based on desired speed and direction */
+    background-position: 36px 0;
   }
 }
 
@@ -526,6 +528,11 @@ img {
 
   padding: 2rem;
   background-size: 100% 100%;
+
+  position: relative;
+  transform: translateY(-100vh);
+  opacity: 0;
+  transition: transform 2s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.01s ease;
 }
 
 .typecase__item {
@@ -709,13 +716,13 @@ img {
   display: grid;
   grid-template-rows: auto auto auto;
   gap: 1rem;
-  width: 100%;
-  /* padding: 0rem 1rem; */
+  /* width: 100%; */
+  padding: 0rem 1rem;
 }
 
 .bible__animation--container {
   display: flex;
-  width: 100%;
+  /* width: 100%; */
   justify-content: space-evenly;
 }
 
@@ -765,7 +772,10 @@ img {
 }
 
 .bible__description {
-  min-height: 10rem;
+  min-height: 12rem;
+  overflow-y: hidden;
+  padding-top: 1rem;
+  /* padding: 0rem 1rem; */
 }
 
 .book__anim {
@@ -780,7 +790,7 @@ img {
   /* align-self: center; */
 }
 
-.bible__stats ul{
+.bible__stats ul {
   /* display: flex;
   align-items: center; */
   /* display: grid;
@@ -788,17 +798,18 @@ img {
   align-self: center;
 }
 
-.arrow--vert{
+.arrow--vert {
   /* background-color: green; */
   background-image: url(/assets/arrow-vert.svg);
   background-repeat: no-repeat;
-    background-size: contain;
+  background-size: contain;
 }
 
 .progress__container {
   display: flex;
-  gap: 5rem;
-  /* width: 10rem; */
+  /* gap: 5rem; */
+  justify-content: space-between;
+  max-width: 20rem;
   padding: 1rem;
   /* height: 0.5rem; */
   /* justify-content: center; */
@@ -891,15 +902,15 @@ img {
 }
 
 
-/* .proof__mistake--smudge {
+.proof__mistake--smudge {
   text-shadow: 3px 3px 2px rgba(0, 0, 0, 1),
     -3px -3px 4px rgba(0, 0, 0, 1);
-} */
+}
 
 
 .proof__mistake {
   position: relative;
-  background-color: red;
+  /* background-color: red; */
   /* To ensure that the ::before is positioned relative to the parent */
 }
 
@@ -919,7 +930,7 @@ img {
   bottom: -2px;
   background-color: var(--c-primary);
   z-index: -1;
-  width: 0;
+  width: 0%;
   /* Initially, the width is 0 */
   transition: width 0.3s ease-in-out;
   /* Animate width from 0 to full width */
@@ -928,7 +939,35 @@ img {
 /* Example to trigger the animation (e.g., on hover) */
 .proof__mistake__found::before {
   width: 100%;
+  animation: vibrate-1 0.3s linear infinite both;
   /* On hover, expand the width to full width of the parent */
+}
+
+
+@keyframes vibrate-1 {
+  0% {
+    transform: translate(0);
+  }
+
+  20% {
+    transform: translate(-1px, 1px);
+  }
+
+  40% {
+    transform: translate(-1px, -1px);
+  }
+
+  60% {
+    transform: translate(1px, 1px);
+  }
+
+  80% {
+    transform: translate(1px, -1px);
+  }
+
+  100% {
+    transform: translate(0);
+  }
 }
 
 
@@ -1446,8 +1485,8 @@ footer h4 {
     background-image: url("/assets/type-red.jpg") !important;
     background-color: var(--c-primary) !important;
     transition: all 0.5s ease-out;
-    min-width: 5rem;
-    min-height: 5rem;
+    min-width: 2rem;
+    min-height: 2rem;
     overflow: hidden;
   }
 
@@ -1470,7 +1509,7 @@ footer h4 {
   }
 
   .cell--special:hover {
-    min-width: 15rem;
+    min-width: 10rem;
     min-height: 25rem;
     width: fit-content;
     font-weight: 400;
@@ -1516,15 +1555,31 @@ footer h4 {
   }
 
   .cell--special:hover {
-    min-width: 15rem;
-    min-height: 20rem;
+    min-width: 10rem;
+    min-height: 25rem;
     padding: 1rem;
   }
 
-  .cell--special:hover::before {
+  .cell--special--1:hover::before {
     width: 80%;
     height: 80%;
-    content: 'The typesetting process began with selecting the appropriate typeface and font size. Plantin was known for his appreciation of elegant typography and collaborated with some of the finest type designers of his time, including the renowned French punchcutter Claude Garamond. The clean and legible fonts used in Plantins books helped set a new standard for printed works.';
+    content: "The typesetting process began with selecting the appropriate typeface and font size. Plantin was known for his appreciation of elegant typography and collaborated with some of the finest type designers of his time, including the renowned French punchcutter Claude Garamond. The clean and legible fonts used in Plantins books helped set a new standard for printed works.";
+    opacity: 1;
+    font-weight: 400;
+  }
+
+  .cell--special--2:hover::before {
+    width: 80%;
+    height: 80%;
+    content: 'The challenges of typesetting were many. A single misplaced letter or uneven spacing could compromise the entire page, and the mirrored arrangement of the text made proofreading particularly difficult. Despite this, Plantin’s workshop became known for its consistency and high-quality output. The precision of the typesetting contributed to the clarity and beauty of his printed books, whether they were religious texts, scientific treatises, or literary works.';
+    opacity: 1;
+    font-weight: 400;
+  }
+
+  .cell--special--3:hover::before {
+    width: 80%;
+    height: 80%;
+    content: 'The challenges of typesetting were many. A single misplaced letter or uneven spacing could compromise the entire page, and the mirrored arrangement of the text made proofreading particularly difficult. Despite this, Plantin’s workshop became known for its consistency and high-quality output. The precision of the typesetting contributed to the clarity and beauty of his printed books, whether they were religious texts, scientific treatises, or literary works.';
     opacity: 1;
     font-weight: 400;
   }
@@ -1635,6 +1690,7 @@ footer h4 {
       height: 90%; */
 
     display: grid;
+    position: relative;
 
     grid-template-columns: repeat(20, 1fr);
     grid-template-rows: repeat(10, 1fr);
@@ -1686,10 +1742,34 @@ footer h4 {
     padding: 1rem;
   }
 
-  .cell--special:hover::before {
+  /* .cell--special:hover::before {
     width: 80%;
     height: 80%;
     content: 'The typesetting process began with selecting the appropriate typeface and font size. Plantin was known for his appreciation of elegant typography and collaborated with some of the finest type designers of his time, including the renowned French punchcutter Claude Garamond. The clean and legible fonts used in Plantins books helped set a new standard for printed works.';
+    opacity: 1;
+    font-weight: 400;
+  } */
+
+  .cell--special--1:hover::before {
+    width: 80%;
+    height: 80%;
+    content: "The typesetting process began with selecting the appropriate typeface and font size. Plantin was known for his appreciation of elegant typography and collaborated with some of the finest type designers of his time, including the renowned French punchcutter Claude Garamond. The clean and legible fonts used in Plantins books helped set a new standard for printed works.";
+    opacity: 1;
+    font-weight: 400;
+  }
+
+  .cell--special--2:hover::before {
+    width: 80%;
+    height: 80%;
+    content: 'Each metal type block was carefully placed in a composing stick to form words, then sentences, and eventually full lines of text. These lines were arranged into a larger frame to create a complete page layout. To ensure accuracy, typesetters worked slowly and methodically, reviewing their work for errors before sending it to the press.';
+    opacity: 1;
+    font-weight: 400;
+  }
+
+  .cell--special--3:hover::before {
+    width: 80%;
+    height: 80%;
+    content: 'The challenges of typesetting were many. A single misplaced letter or uneven spacing could compromise the entire page, and the mirrored arrangement of the text made proofreading particularly difficult. Despite this, Plantin’s workshop became known for its consistency and high-quality output. The precision of the typesetting contributed to the clarity and beauty of his printed books, whether they were religious texts, scientific treatises, or literary works.';
     opacity: 1;
     font-weight: 400;
   }
@@ -1710,7 +1790,7 @@ footer h4 {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
     gap: 1rem;
-    padding: 1rem;
+    /* padding: 1rem; */
   }
 
   .bible__img {
@@ -1726,10 +1806,12 @@ footer h4 {
   }
 
   .bible__text {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: start;
+    align-items: start; */
+    display: grid;
+    grid-template-rows: 1fr auto;
   }
 
   .bible__animation--container {
