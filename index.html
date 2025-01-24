@@ -5,6 +5,9 @@
 <head>
   <meta charset="UTF-8">
   <link rel="icon" type="image/svg+xml" href="/vite.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -149,8 +152,8 @@
     <p class="role role__diplomat">Diplomat</p>
     <div class="topbar">
 
-      <img class="ignore" src="/assets/placeh.jpg" width="70">
-      <div class="space"></div>
+      <img class="ignore" src="/assets/placeh.jpg" width="70" alt="placeholder">
+      <div class="line"></div>
       <p>Labore et constantia</p>
       <div class="line"></div>
       <img src="/assets/logo.webp" width="70" alt="plantin moretus logo">
@@ -164,8 +167,13 @@
       </svg>
     </div>
     <div class="header__imgs">
-      <img class="circles header__img" src="/assets/circles.svg">
-      <img class="plantin header__img" src="/assets/plantin.webp">
+      <div class="circles header__img">
+        <img class="circle circle1" src="/assets/circle-1.svg" alt="circles">
+        <img class="circle circle2" src="/assets/circle-2.svg" alt="circles">
+      </div>
+
+      <!-- <img class="circles header__img" src="/assets/circles.svg" alt="circles"> -->
+      <img class="plantin header__img" src="/assets/plantin.webp" alt="statue of Plantin">
     </div>
     <p class="header__description">Christophe Plantin was one of the most influential printers of the Renaissance. Born
       in 1520, he built a printing
@@ -175,26 +183,12 @@
       bookmaking to
       explore the steps he took to leave his mark on history</p>
     <div class="animated__container">
-      <video autoplay loop muted class="star__anim">
-        <source src="/assets/star.webm" type="video/webm">
-        Your browser does not support the video tag.
-      </video>
-      <video autoplay loop muted class="star__anim">
-        <source src="/assets/star.webm" type="video/webm">
-        Your browser does not support the video tag.
-      </video>
-      <video autoplay loop muted class="star__anim">
-        <source src="/assets/star.webm" type="video/webm">
-        Your browser does not support the video tag.
-      </video>
-      <video autoplay loop muted class="star__anim">
-        <source src="/assets/star.webm" type="video/webm">
-        Your browser does not support the video tag.
-      </video>
-      <video autoplay loop muted class="star__anim">
-        <source src="/assets/star.webm" type="video/webm">
-        Your browser does not support the video tag.
-      </video>
+      <img class="star__anim" src="assets/star.gif" alt="star animation">
+      <img class="star__anim" src="assets/star.gif" alt="star animation">
+      <img class="star__anim" src="assets/star.gif" alt="star animation">
+      <img class="star__anim" src="assets/star.gif" alt="star animation">
+      <img class="star__anim" src="assets/star.gif" alt="star animation">
+
     </div>
   </header>
 
@@ -362,7 +356,7 @@
           </div>
         </div>
         <div class="setting__text">
-          <h3 class="setting__text--heading">Ink</h3>
+          <h3 class="setting__text--heading">The story begins</h3>
           <p class="text--tool setting__text--element"></p>
           <p class="text--story setting__text--element">The story of Christophe Plantin begins like the assembly of a
             workshop: piece by piece,
@@ -388,9 +382,9 @@
           <p class="comment">materials include lead, tin, antimony</p>
         </div>
         <div class="container__extraviews">
-          <img src="/assets/type-side.webp" alt="movable type">
-          <img src="/assets/type-front.webp" alt="movable type">
-          <img src="/assets/type-top.webp" alt="movable type">
+          <img class="type__extraview" src="/assets/type-side.webp" alt="movable type">
+          <img class="type__extraview" src="/assets/type-front.webp" alt="movable type">
+          <img class="type__extraview" src="/assets/type-top.webp" alt="movable type">
         </div>
         <div class="container__text">
           <h3>Crafting the words</h3>
@@ -398,10 +392,12 @@
           <p>In Christophe Plantin's time, the art of typesetting was the backbone of book production. Each page of text
             was
             assembled by hand, one letter at a time, using small metal blocks of type. This painstaking process required
-            precision,
-            patience, and an eye for detail - qualities that Plantin and his team mastered.</p>
+            <em>precision,
+              patience, and an eye for detail</em> - qualities that Plantin and his team mastered.
+          </p>
 
-          <p>In 1555, Plantin founded the Plantin Press in Antwerp, establishing what would become one of the most
+          <p>In 1555, Plantin founded the <em>Plantin Press</em> in Antwerp, establishing what would become one of the
+            most
             renowned printing
             houses of the Renaissance. His workshop was innovative not just in its output but in its organization.
             Plantin
@@ -409,7 +405,8 @@
             labor among specialized teams, streamlining the typesetting and printing processes. This allowed his press
             to
             handle
-            complex, large-scale projects like the Polyglot Bible, which required meticulous accuracy and coordination.
+            complex, large-scale projects like the <em>Polyglot Bible</em>, which required meticulous accuracy and
+            coordination.
           </p>
         </div>
       </div>
@@ -463,21 +460,25 @@
         <div class="printing__text">
           <h3>Printing ideas onto reality</h3>
           <div class="printing__text--container">
-            <p class="printing_paragraph printing_paragraph-1">Printing in Christophe Plantin's workshop was a marvel of
+            <p class="printing_paragraph printing_paragraph-1">Printing in <em>Christophe Plantin's</em> workshop was a
+              marvel of
               coordination and craftsmanship, where the ideas
               painstakingly
               assembled during typesetting were brought to life on the page. At the heart of this process was the
-              printing
-              press
+              <em>printing
+                press</em>
               itself—a heavy, imposing machine that symbolized Plantin's mission: to transform human thought into
               tangible, shareable
-              knowledge.</p>
-            <p class="printing_paragraph printing_paragraph-2">The act of printing was as much about precision as it was
-              about perseverance. Once the type was set and
+              knowledge.
+            </p>
+            <p class="printing_paragraph printing_paragraph-2">The act of printing was as much about <em>precision</em>
+              as it was
+              about <em>perseverance</em>. Once the type was set and
               locked into
               place, it was inked using pads made of leather and horsehair. The ink had to be applied evenly; too little
               would produce
-              faint text, while too much risked smudging the page. The press operator would then carefully place a sheet
+              faint text, while too much risked <em>smudging</em> the page. The press operator would then carefully
+              place a sheet
               of paper onto
               the inked type, secure it with a frame, and pull the press handle to imprint the design.</p>
             <p class="printing_paragraph printing_paragraph-3">Each pull of the press handle was like a heartbeat,
@@ -485,11 +486,13 @@
               and
               labor-intensive process—one pull created only a single page. Plantin's workshop, however, was a symphony
               of activity.
-              Multiple presses operated in tandem, producing books at an unprecedented scale. It was here that Plantin's
+              <em>Multiple presses operated in tandem, producing books at an unprecedented scale</em>. It was here that
+              Plantin's
               leadership
               and innovation shone: he orchestrated his team like a master conductor, ensuring every step, from inking
               to drying, was
-              performed with care and efficiency.</p>
+              performed with care and efficiency.
+            </p>
           </div>
           <div class="printing__note">
             <div class="note__text">
@@ -521,64 +524,32 @@
       <div class="bible__body">
         <div class="bible__text">
           <div class="bible__animation--container">
-            <!-- <video autoplay loop muted class="book__anim">
-              <source src="/assets/book.webm" type="video/webm">
-              Your browser does not support the video tag.
-            </video>
-            <video autoplay loop muted class="book__anim">
-              <source src="/assets/book.webm" type="video/webm">
-              Your browser does not support the video tag.
-            </video>
-
-            <video autoplay loop muted class="book__anim">
-              <source src="/assets/book.webm" type="video/webm">
-              Your browser does not support the video tag.
-            </video>
-            <video autoplay loop muted class="book__anim">
-              <source src="/assets/book.webm" type="video/webm">
-              Your browser does not support the video tag.
-            </video>
-
-            <video autoplay loop muted class="book__anim">
-              <source src="/assets/book.webm" type="video/webm">
-              Your browser does not support the video tag.
-            </video>
-            <video autoplay loop muted class="book__anim">
-              <source src="/assets/book.webm" type="video/webm">
-              Your browser does not support the video tag.
-            </video>
-
-            <video autoplay loop muted class="book__anim">
-              <source src="/assets/book.webm" type="video/webm">
-              Your browser does not support the video tag.
-            </video>
-            <video autoplay loop muted class="book__anim">
-              <source src="/assets/book.webm" type="video/webm">
-              Your browser does not support the video tag.
-            </video> -->
           </div>
           <div class="bible__description">
             <h3 class="bible__description--heading">Polyglot Bible</h3>
-            <p class="bible__description--body">Commissioned by King Philip II of Spain, the Polyglot Bible was a
+            <p class="bible__description--body">Commissioned by <em>King Philip II</em> of Spain, the <em>Polyglot
+                Bible</em> was a
               multilingual masterpiece. It featured
               the text of the
-              Bible in Hebrew, Greek, Latin, Syriac, and Aramaic, spread across eight massive volumes. This work wasn’t
+              Bible in <em>Hebrew, Greek, Latin, Syriac</em>, and <em>Aramaic</em>, spread across eight massive volumes.
+              This work wasn't
               merely a
-              display of linguistic scholarship; it was also a political and religious statement, reinforcing Catholic
+              display of linguistic scholarship; it was also a <em>political and religious statement</em>, reinforcing
+              Catholic
               authority in an
               era of Protestant Reformation.</p>
           </div>
         </div>
         <div class="bible__img">
           <div class="books__container">
-            <img src="/assets/bible1.webp" alt="Polyglot bible">
-            <img src="/assets/bible2.webp" alt="Polyglot bible">
-            <img src="/assets/bible3.webp" alt="Polyglot bible">
-            <img src="/assets/bible1.webp" alt="Polyglot bible">
-            <img src="/assets/bible2.webp" alt="Polyglot bible">
-            <img src="/assets/bible1.webp" alt="Polyglot bible">
-            <img src="/assets/bible2.webp" alt="Polyglot bible">
-            <img src="/assets/bible1.webp" alt="Polyglot bible">
+            <img class="bible__stack bible__stack--1" src="/assets/bible1.webp" alt="Polyglot bible">
+            <img class="bible__stack bible__stack--2" src="/assets/bible2.webp" alt="Polyglot bible">
+            <img class="bible__stack bible__stack--3" src="/assets/bible3.webp" alt="Polyglot bible">
+            <img class="bible__stack bible__stack--4" src="/assets/bible1.webp" alt="Polyglot bible">
+            <img class="bible__stack bible__stack--5" src="/assets/bible2.webp" alt="Polyglot bible">
+            <img class="bible__stack bible__stack--6" src="/assets/bible1.webp" alt="Polyglot bible">
+            <img class="bible__stack bible__stack--7" src="/assets/bible2.webp" alt="Polyglot bible">
+            <img class="bible__stack bible__stack--8" src="/assets/bible1.webp" alt="Polyglot bible">
           </div>
           <div class="bible__stats">
             <!-- <svg width="8" height="814" viewBox="0 0 8 814" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -669,6 +640,8 @@
     </section>
 
     <section class="building">
+      <div class="bg__element"></div>
+      <div class="bg__element"></div>
       <img class="bg__letter bg__letter--w" src="/assets/bg-w-grey.webp" alt="bg letter">
       <img class="bg__letter bg__letter--a" src="/assets/bg-a-grey.webp" alt="bg letter">
       <h2 class="visually-hidden">Proof-reading</h2>
@@ -710,113 +683,116 @@
         <div class="map__text">
           <h3>Fleeing to the Netherlands</h3>
           <p class="map__paragraph map__paragraph--1">
-            The tensions in Antwerp eventually grew so severe that Plantin was forced to flee to Leiden in 1567. There,
+            The tensions in Antwerp eventually grew so severe that Plantin was forced to flee to <em>Leiden</em> in
+            1567. There,
             he
             established a new press with the help of Protestant supporters, temporarily escaping the Catholic
             authorities' watchful
             eyes. His time in the Netherlands allowed him to maintain his livelihood, but it also showed his willingness
-            to adapt
-            and shift alliances when necessary.</p>
+            to <em>adapt
+              and shift alliances</em> when necessary.</p>
           <p class="info">Move Plantin from Antwerp to <span class="info--highlight">Leiden</span></p>
 
           <p class="map__paragraph map__paragraph--2 map__unlock--1">
-            Leiden offered Plantin a fresh start in a more Protestant-friendly environment. During his time there, he
+            <em>Leiden</em> offered Plantin a fresh start in a more <em>Protestant-friendly environment</em>. During his
+            time there, he
             worked on
-            printing materials that aligned with the Reformation, such as theological texts and scholarly works by
+            printing materials that aligned with the <em>Reformation</em>, such as theological texts and scholarly works
+            by
             prominent
             Protestant authors. Yet, true to his nature, Plantin avoided fully committing to any single faction, knowing
             the dangers
-            of aligning too closely with one side.</p>
+            of aligning too closely with one side.
+          </p>
           <p class="info map__unlock--1">Move Plantin back to <span class="info--highlight">Antwerp</span></p>
 
           <p class="map__paragraph map__paragraph--3 map__unlock--2">
-            After a few years in Leiden, Plantin returned to Antwerp, a city still under Catholic rule but essential for
+            After a few years in <em>Leiden</em>, Plantin returned to <em>Antwerp</em>, a city still under Catholic rule
+            but essential for
             his
-            ambitions. Back in his original workshop, he secured the favor of powerful Catholic patrons, including King
-            Philip II of
-            Spain. This relationship granted him privileges such as lucrative printing licenses, including the right to
+            ambitions. Back in his original workshop, he secured the favor of powerful Catholic patrons, including
+            <em>King
+              Philip II of
+              Spain</em>. This relationship granted him privileges such as lucrative printing licenses, including the
+            right to
             publish
-            official Catholic texts</p>
+            official Catholic texts
+          </p>
         </div>
       </div>
     </section>
 
     <section id="dist" class="distribution section--dark">
+      <img class="bg__letter bg__letter--w" src="/assets/bg-w-grey.webp" alt="bg letter">
+      <img class="bg__letter bg__letter--a" src="/assets/bg-a-grey.webp" alt="bg letter">
       <div class="dist__container--main">
         <div class="dist__header">
           <h2 class="proof__heading"><span class="heading__number">-05-</span>Distribution</h2>
           <div class="dist__anim--container">
             <div class="dist__decor"></div>
             <div class="dist__anims">
-              <video autoplay loop muted class="dist__anim">
-                <source src="/assets/envelope.webm" type="video/webm">
-                Your browser does not support the video tag.
-              </video>
-              <video autoplay loop muted class="dist__anim">
-                <source src="/assets/envelope.webm" type="video/webm">
-                Your browser does not support the video tag.
-              </video><video autoplay loop muted class="dist__anim">
-                <source src="/assets/envelope.webm" type="video/webm">
-                Your browser does not support the video tag.
-              </video><video autoplay loop muted class="dist__anim">
-                <source src="/assets/envelope.webm" type="video/webm">
-                Your browser does not support the video tag.
-              </video><video autoplay loop muted class="dist__anim">
-                <source src="/assets/envelope.webm" type="video/webm">
-                Your browser does not support the video tag.
-              </video><video autoplay loop muted class="dist__anim">
-                <source src="/assets/envelope.webm" type="video/webm">
-                Your browser does not support the video tag.
-              </video><video autoplay loop muted class="dist__anim">
-                <source src="/assets/envelope.webm" type="video/webm">
-                Your browser does not support the video tag.
-              </video><video autoplay loop muted class="dist__anim">
-                <source src="/assets/envelope.webm" type="video/webm">
-                Your browser does not support the video tag.
-              </video>
+              <img class="dist__anim" src="/assets/envelope.gif" alt="envelope animation">
+              <img class="dist__anim" src="/assets/envelope.gif" alt="envelope animation">
+              <img class="dist__anim" src="/assets/envelope.gif" alt="envelope animation">
+              <img class="dist__anim" src="/assets/envelope.gif" alt="envelope animation">
+              <img class="dist__anim" src="/assets/envelope.gif" alt="envelope animation">
+              <img class="dist__anim" src="/assets/envelope.gif" alt="envelope animation">
+              <img class="dist__anim" src="/assets/envelope.gif" alt="envelope animation">
+              <img class="dist__anim" src="/assets/envelope.gif" alt="envelope animation">
+
             </div>
           </div>
         </div>
         <div class="dist__text">
           <h3>The legacy lives on</h3>
           <div>
-            <p class="dist__paragraph dist__paragraph1">When Christophe Plantin passed away in 1589, his legacy did not
-              end. The Plantin Press continued to
+            <p class="dist__paragraph dist__paragraph1">When <em>Christophe Plantin</em> passed away in 1589, his legacy
+              did not
+              end. <em>The Plantin Press</em> continued to
               flourish under the
-              stewardship of his son-in-law, Jan Moretus, who had been an integral part of the business for many years.
+              stewardship of his son-in-law, <em>Jan Moretus</em>, who had been an integral part of the business for
+              many years.
               Moretus not
               only maintained Plantin's high standards of craftsmanship but also expanded the workshop's reach, ensuring
               that the
               Plantin-Moretus name became synonymous with quality printing for generations.</p>
 
-            <p class="dist__paragraph dist__paragraph2">If the printing press was the engine of Christophe Plantin's
+            <p class="dist__paragraph dist__paragraph2">If the printing press was the engine of <em>Christophe
+                Plantin's</em>
               success, then distribution was its driving
               force.
               Printing
-              a book was only half the battle. Ensuring that it reached scholars, clergy, and readers across Europe and
+              a book was only half the battle. Ensuring that it reached <em>scholars, clergy, and readers across
+                Europe</em> and
               beyond
               was a
-              monumental task. For Plantin, distribution wasn't just about commerce. It was about spreading knowledge
-              and
-              shaping
-              culture.</p>
+              monumental task. For Plantin, distribution wasn't just about commerce. It was about <em>spreading
+                knowledge
+                and
+                shaping
+                culture</em>.</p>
 
             <p class="dist__paragraph dist__paragraph3">Plantin's workshop wasn't just a local operation—it was an
-              international powerhouse. By the height of his
+              <em>international powerhouse</em>. By the height of his
               career, he had
-              established a vast network of booksellers and agents across Europe, from Paris to Frankfurt and Venice to
-              London. <br><br>
-              The Polyglot Bible, for example, was not just a scholarly achievement but also a logistical one. Copies
+              established a vast network of booksellers and agents across Europe, from <em>Paris</em> to
+              <em>Frankfurt</em> and <em>Venice</em> to
+              <em>London</em>. <br><br>
+              The <em>Polyglot Bible</em>, for example, was not just a scholarly achievement but also a
+              <em>logistical</em> one. Copies
               of
               this
-              monumental work were shipped to courts, universities, and libraries across the continent, solidifying
+              monumental work were shipped to <em>courts, universities, and libraries</em> across the continent,
+              solidifying
               Plantin's
-              reputation as one of the most important printers of the Renaissance.</p>
+              reputation as one of the most important printers of the Renaissance.
+            </p>
 
             <p class="dist__paragraph dist__paragraph4">Plantin also maintained close ties with Spanish markets, thanks
-              to his patronage by King Philip II. This
+              to his patronage by <em>King Philip II</em>. This
               connection
-              granted him the prestigious title of Architypographer to the King, allowing his works to circulate widely
+              granted him the prestigious title of <em>Architypographer to the King</em>, allowing his works to
+              circulate widely
               within
               the
               Spanish Empire, including its colonies in the Americas.</p>
@@ -834,7 +810,7 @@
 
     </section>
 
-    <section  id="outro" class="outro">
+    <section id="outro" class="outro">
       <img class="bg__letter bg__letter--w" src="/assets/bg-w-grey.webp" alt="bg letter">
       <img class="bg__letter bg__letter--a" src="/assets/bg-a-grey.webp" alt="bg letter">
       <img class="bg__letter bg__letter--y" src="/assets/bg-y-grey.webp" alt="bg letter">
@@ -859,25 +835,30 @@
         </div>
         <div class="outro__text">
           <h3>The end ...or is it?</h3>
-          <p>This chapter concludes the first of six stories in our series exploring Plantins endevours</p>
-          <p>For those inspired to dive deeper into Plantin's world, there's no better way than to visit the
-            Plantin-Moretus Museum
-            in Antwerp. Walk through the very halls where Plantin and his successors worked tirelessly to create
+          <p>This chapter concludes the <em>first of six</em> stories in our series exploring <em>Plantins</em>
+            endevours</p>
+          <p>For those inspired to <em>dive deeper into Plantin's world</em>, there's no better way than to visit the
+            <em>Plantin-Moretus Museum
+              in Antwerp</em>. Walk through the very halls where Plantin and his successors worked tirelessly to create
             masterpieces of
             typography and printing. See the presses, admire the typefaces, and immerse yourself in the legacy of a man
             who changed
-            how knowledge traveled through the world.</p>
-          <a target=_blank href="https://museumplantinmoretus.be/">
-            <button class="visit__button">Visit Plantin-Moretus <span><svg width="20" height="20" viewBox="0 0 20 20"
-                  fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M15 10.8333V15.8333C15 16.2754 14.8244 16.6993 14.5118 17.0118C14.1993 17.3244 13.7754 17.5 13.3333 17.5H4.16667C3.72464 17.5 3.30072 17.3244 2.98816 17.0118C2.67559 16.6993 2.5 16.2754 2.5 15.8333V6.66667C2.5 6.22464 2.67559 5.80072 2.98816 5.48816C3.30072 5.17559 3.72464 5 4.16667 5H9.16667"
-                    stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                  <path d="M12.5 2.5H17.5V7.5" stroke="white" stroke-width="1.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                  <path d="M8.33337 11.6667L17.5 2.5" stroke="white" stroke-width="1.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></span></button></a>
+            how knowledge traveled through the world.
+          </p>
+          <a class="visit__button" target=_blank href="https://museumplantinmoretus.be/">
+            <!-- <button class="visit__button"> -->
+            Visit Plantin-Moretus
+            <span><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M15 10.8333V15.8333C15 16.2754 14.8244 16.6993 14.5118 17.0118C14.1993 17.3244 13.7754 17.5 13.3333 17.5H4.16667C3.72464 17.5 3.30072 17.3244 2.98816 17.0118C2.67559 16.6993 2.5 16.2754 2.5 15.8333V6.66667C2.5 6.22464 2.67559 5.80072 2.98816 5.48816C3.30072 5.17559 3.72464 5 4.16667 5H9.16667"
+                  stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M12.5 2.5H17.5V7.5" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M8.33337 11.6667L17.5 2.5" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></span>
+            <!-- </button> -->
+          </a>
         </div>
       </div>
     </section>
@@ -892,18 +873,144 @@
   <footer class="text--light">
     <div class="footer__body">
       <div class="logo__container">
-        <img src="/assets/logo.webp">
+        <img src="/assets/logo.webp" alt="plantin moretus logo">
       </div>
       <div class="stay__container">
         <h4>Stay in touch</h4>
         <div class="socials__container">
-          <a href="#" class="social"><img src="/assets/placeh.jpg" width="30"></a>
-          <a href="#" class="social"><img src="/assets/placeh.jpg" width="30"></a>
-          <a href="#" class="social"><img src="/assets/placeh.jpg" width="30"></a>
-          <a href="#" class="social"><img src="/assets/placeh.jpg" width="30"></a>
-          <a href="#" class="social"><img src="/assets/placeh.jpg" width="30"></a>
-          <a href="#" class="social"><img src="/assets/placeh.jpg" width="30"></a>
-          <a href="#" class="social"><img src="/assets/placeh.jpg" width="30"></a>
+          <a href="#" class="social"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M22.5 12.0635C22.5 6.26504 17.7984 1.56348 12 1.56348C6.20156 1.56348 1.5 6.26504 1.5 12.0635C1.5 17.3041 5.33906 21.648 10.3594 22.4364V15.0996H7.69266V12.0635H10.3594V9.75019C10.3594 7.1191 11.9273 5.66457 14.3255 5.66457C15.4744 5.66457 16.6763 5.86988 16.6763 5.86988V8.4541H15.3516C14.048 8.4541 13.6402 9.26316 13.6402 10.0947V12.0635H16.552L16.087 15.0996H13.6406V22.4374C18.6609 21.6494 22.5 17.3055 22.5 12.0635Z"
+                fill="#DCDCDC" />
+            </svg></a>
+          <a href="#" class="social"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M16.3748 3.24984C17.5342 3.25331 18.6451 3.71539 19.4648 4.53517C20.2846 5.35495 20.7467 6.46582 20.7502 7.62516V16.3748C20.7467 17.5342 20.2846 18.6451 19.4648 19.4648C18.6451 20.2846 17.5342 20.7467 16.3748 20.7502H7.62516C6.46582 20.7467 5.35495 20.2846 4.53517 19.4648C3.71539 18.6451 3.25331 17.5342 3.24984 16.3748V7.62516C3.25331 6.46582 3.71539 5.35495 4.53517 4.53517C5.35495 3.71539 6.46582 3.25331 7.62516 3.24984H16.3748V3.24984ZM16.3748 1.5H7.62516C4.25625 1.5 1.5 4.25625 1.5 7.62516V16.3748C1.5 19.7437 4.25625 22.5 7.62516 22.5H16.3748C19.7437 22.5 22.5 19.7437 22.5 16.3748V7.62516C22.5 4.25625 19.7437 1.5 16.3748 1.5V1.5Z"
+                fill="#DCDCDC" />
+              <path
+                d="M17.6874 7.625C17.4278 7.625 17.174 7.54802 16.9582 7.4038C16.7424 7.25959 16.5741 7.0546 16.4748 6.81477C16.3754 6.57494 16.3495 6.31104 16.4001 6.05644C16.4507 5.80184 16.5757 5.56798 16.7593 5.38442C16.9429 5.20087 17.1767 5.07586 17.4313 5.02522C17.6859 4.97458 17.9498 5.00057 18.1897 5.09991C18.4295 5.19925 18.6345 5.36748 18.7787 5.58331C18.9229 5.79915 18.9999 6.05291 18.9999 6.3125C19.0002 6.48496 18.9666 6.6558 18.9007 6.81521C18.8349 6.97462 18.7382 7.11945 18.6163 7.24141C18.4943 7.36336 18.3495 7.46002 18.1901 7.52585C18.0307 7.59168 17.8598 7.62537 17.6874 7.625V7.625Z"
+                fill="#DCDCDC" />
+              <path
+                d="M12 8.49984C12.6923 8.49984 13.369 8.70512 13.9446 9.08973C14.5202 9.47433 14.9688 10.021 15.2337 10.6605C15.4986 11.3001 15.568 12.0039 15.4329 12.6828C15.2978 13.3618 14.9645 13.9855 14.475 14.475C13.9855 14.9645 13.3618 15.2978 12.6828 15.4329C12.0039 15.568 11.3001 15.4986 10.6606 15.2337C10.021 14.9688 9.47433 14.5202 9.08973 13.9446C8.70513 13.369 8.49985 12.6923 8.49985 12C8.50084 11.072 8.86992 10.1823 9.52611 9.52611C10.1823 8.86992 11.072 8.50084 12 8.49984V8.49984ZM12 6.75C10.9617 6.75 9.94662 7.05791 9.08326 7.63478C8.2199 8.21166 7.54699 9.0316 7.14963 9.99091C6.75227 10.9502 6.64831 12.0058 6.85088 13.0242C7.05345 14.0426 7.55347 14.9781 8.28769 15.7123C9.02192 16.4465 9.95738 16.9466 10.9758 17.1491C11.9942 17.3517 13.0498 17.2477 14.0091 16.8504C14.9684 16.453 15.7883 15.7801 16.3652 14.9167C16.9421 14.0534 17.25 13.0384 17.25 12C17.25 10.6076 16.6969 9.27226 15.7123 8.28769C14.7277 7.30312 13.3924 6.75 12 6.75V6.75Z"
+                fill="#DCDCDC" />
+            </svg></a>
+          <a href="#" class="social"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_605_246)">
+                <path
+                  d="M0.271875 13.0312C0.247414 13.0325 0.224285 13.0428 0.206966 13.0601C0.189647 13.0774 0.17937 13.1005 0.178125 13.125L0 14.4675L0.175313 15.7875C0.176707 15.8123 0.187347 15.8357 0.205135 15.8531C0.222923 15.8704 0.246567 15.8805 0.271406 15.8812C0.295763 15.8797 0.31872 15.8693 0.335977 15.8521C0.353235 15.8348 0.363609 15.8119 0.365156 15.7875V15.7875L0.573281 14.467L0.367031 13.125C0.365484 13.1006 0.35511 13.0777 0.337852 13.0604C0.320595 13.0432 0.297638 13.0328 0.273281 13.0312H0.271875Z"
+                  fill="#DCDCDC" />
+                <path
+                  d="M1.25865 12.2961C1.25865 12.2697 1.24813 12.2443 1.2294 12.2255C1.21068 12.2068 1.18528 12.1963 1.1588 12.1963C1.13232 12.1963 1.10693 12.2068 1.0882 12.2255C1.06948 12.2443 1.05896 12.2697 1.05896 12.2961L0.824585 14.4674L1.05896 16.5908C1.05896 16.6173 1.06948 16.6427 1.0882 16.6614C1.10693 16.6801 1.13232 16.6907 1.1588 16.6907C1.18528 16.6907 1.21068 16.6801 1.2294 16.6614C1.24813 16.6427 1.25865 16.6173 1.25865 16.5908L1.52724 14.4669L1.25865 12.2957V12.2961Z"
+                  fill="#DCDCDC" />
+                <path
+                  d="M4.97669 10.293C4.92907 10.2945 4.88381 10.3141 4.85011 10.3478C4.81641 10.3815 4.79681 10.4267 4.79529 10.4744L4.60779 14.4691L4.79529 17.0509C4.79766 17.0975 4.81782 17.1414 4.85163 17.1735C4.88543 17.2057 4.93029 17.2236 4.97693 17.2236C5.02357 17.2236 5.06842 17.2057 5.10223 17.1735C5.13603 17.1414 5.1562 17.0975 5.15857 17.0509V17.0509L5.37091 14.4691L5.15857 10.4744C5.15704 10.4267 5.13737 10.3813 5.10358 10.3476C5.06978 10.3139 5.0244 10.2944 4.97669 10.293Z"
+                  fill="#DCDCDC" />
+                <path
+                  d="M3.05245 11.6816C3.01549 11.6827 2.98034 11.6979 2.95419 11.724C2.92804 11.7502 2.91289 11.7853 2.91183 11.8223L2.69995 14.4684L2.91136 17.0291C2.91136 17.0664 2.92617 17.1022 2.95255 17.1286C2.97892 17.1549 3.01469 17.1698 3.05198 17.1698C3.08928 17.1698 3.12505 17.1549 3.15142 17.1286C3.17779 17.1022 3.19261 17.0664 3.19261 17.0291L3.43308 14.4684L3.19261 11.8209C3.19109 11.7843 3.17581 11.7496 3.14983 11.7238C3.12384 11.698 3.08906 11.6829 3.05245 11.6816V11.6816Z"
+                  fill="#DCDCDC" />
+                <path
+                  d="M6.9319 17.2313C6.99058 17.2303 7.04658 17.2066 7.08812 17.1651C7.12965 17.1237 7.15348 17.0677 7.15456 17.0091L7.33878 14.4708L7.15456 9.15234C7.15456 9.09329 7.1311 9.03666 7.08935 8.9949C7.04759 8.95315 6.99096 8.92969 6.9319 8.92969C6.87285 8.92969 6.81622 8.95315 6.77446 8.9949C6.73271 9.03666 6.70925 9.09329 6.70925 9.15234L6.54565 14.4703L6.70925 17.0095C6.71022 17.0682 6.73402 17.1242 6.77559 17.1656C6.81717 17.207 6.87324 17.2305 6.9319 17.2313V17.2313Z"
+                  fill="#DCDCDC" />
+                <path
+                  d="M10.935 17.2429C11.0156 17.2417 11.0926 17.2091 11.1495 17.152C11.2064 17.0949 11.2388 17.0179 11.2397 16.9373L11.3682 14.4717L11.2397 8.33105C11.2397 8.25025 11.2076 8.17275 11.1505 8.11561C11.0933 8.05847 11.0158 8.02637 10.935 8.02637C10.8542 8.02637 10.7767 8.05847 10.7196 8.11561C10.6624 8.17275 10.6303 8.25025 10.6303 8.33105L10.5155 14.4717C10.5155 14.4754 10.6303 16.9406 10.6303 16.9406C10.632 17.0206 10.6648 17.0969 10.7216 17.1533C10.7784 17.2097 10.855 17.2419 10.935 17.2429Z"
+                  fill="#DCDCDC" />
+                <path
+                  d="M8.91845 17.234C8.98829 17.2334 9.05508 17.2053 9.10438 17.1558C9.15367 17.1064 9.18152 17.0395 9.18188 16.9696V16.9696L9.33845 14.4698L9.18188 9.11292C9.18338 9.07736 9.17768 9.04186 9.1651 9.00856C9.15253 8.97526 9.13335 8.94485 9.10871 8.91916C9.08408 8.89347 9.05451 8.87302 9.02177 8.85906C8.98903 8.84509 8.95381 8.83789 8.91821 8.83789C8.88262 8.83789 8.84739 8.84509 8.81466 8.85906C8.78192 8.87302 8.75234 8.89347 8.72771 8.91916C8.70308 8.94485 8.6839 8.97526 8.67133 9.00856C8.65875 9.04186 8.65304 9.07736 8.65454 9.11292L8.51392 14.4703L8.65454 16.9696C8.65528 17.0393 8.68336 17.1058 8.73274 17.1549C8.78211 17.204 8.84881 17.2318 8.91845 17.2321V17.234Z"
+                  fill="#DCDCDC" />
+                <path
+                  d="M4.0106 17.2103C4.05279 17.2092 4.09299 17.1921 4.12296 17.1624C4.15294 17.1327 4.17042 17.0926 4.17185 17.0504L4.39825 14.4681L4.17185 12.0118C4.17185 11.9691 4.15486 11.9281 4.12462 11.8978C4.09438 11.8676 4.05336 11.8506 4.0106 11.8506C3.96783 11.8506 3.92682 11.8676 3.89657 11.8978C3.86633 11.9281 3.84935 11.9691 3.84935 12.0118L3.64966 14.4671L3.84935 17.049C3.85007 17.0916 3.86729 17.1322 3.89737 17.1622C3.92746 17.1923 3.96806 17.2096 4.0106 17.2103V17.2103Z"
+                  fill="#DCDCDC" />
+                <path
+                  d="M2.10188 17.0687C2.13307 17.0676 2.16272 17.0548 2.18501 17.033C2.20729 17.0111 2.22061 16.9817 2.22234 16.9505L2.47688 14.4662L2.22281 11.888C2.22281 11.8561 2.21012 11.8255 2.18753 11.8029C2.16494 11.7803 2.13429 11.7676 2.10234 11.7676C2.07039 11.7676 2.03975 11.7803 2.01716 11.8029C1.99457 11.8255 1.98187 11.8561 1.98187 11.888L1.75781 14.4662L1.98187 16.9505C1.98294 16.9819 1.99597 17.0117 2.01829 17.0337C2.0406 17.0558 2.07051 17.0684 2.10188 17.0691V17.0687Z"
+                  fill="#DCDCDC" />
+                <path
+                  d="M9.92291 9.02441C9.8474 9.02479 9.77511 9.05501 9.7218 9.10849C9.66849 9.16197 9.63851 9.23437 9.63838 9.30988L9.51135 14.4713L9.63838 16.9557C9.64136 17.0291 9.67262 17.0985 9.72561 17.1494C9.7786 17.2002 9.84922 17.2286 9.92268 17.2286C9.99614 17.2286 10.0668 17.2002 10.1197 17.1494C10.1727 17.0985 10.204 17.0291 10.207 16.9557V16.9557L10.3476 14.4713L10.207 9.30895C10.2066 9.23368 10.1766 9.16159 10.1234 9.10832C10.0702 9.05506 9.99818 9.02491 9.92291 9.02441V9.02441Z"
+                  fill="#DCDCDC" />
+                <path
+                  d="M5.95315 17.2368C6.00628 17.2356 6.05691 17.214 6.09453 17.1765C6.13215 17.1389 6.15387 17.0883 6.15519 17.0352L6.35347 14.4707L6.15284 9.56288C6.15034 9.51092 6.12794 9.46191 6.09028 9.42603C6.05262 9.39014 6.0026 9.37012 5.95058 9.37012C5.89856 9.37012 5.84853 9.39014 5.81087 9.42603C5.77322 9.46191 5.75081 9.51092 5.74831 9.56288L5.573 14.4707L5.74878 17.0362C5.75 17.0896 5.77204 17.1405 5.81021 17.178C5.84838 17.2155 5.89967 17.2366 5.95315 17.2368Z"
+                  fill="#DCDCDC" />
+                <path
+                  d="M8.16423 16.994L8.33439 14.4722L8.16423 8.97466C8.16567 8.94185 8.16046 8.90908 8.14889 8.87833C8.13733 8.84759 8.11966 8.81951 8.09695 8.79578C8.07424 8.77205 8.04695 8.75316 8.01675 8.74026C7.98654 8.72736 7.95403 8.7207 7.92119 8.7207C7.88834 8.7207 7.85583 8.72736 7.82563 8.74026C7.79542 8.75316 7.76814 8.77205 7.74543 8.79578C7.72272 8.81951 7.70505 8.84759 7.69348 8.87833C7.68192 8.90908 7.6767 8.94185 7.67814 8.97466L7.52673 14.4722L7.67814 16.9954C7.67814 17.0598 7.70372 17.1216 7.74926 17.1671C7.79479 17.2127 7.85655 17.2383 7.92095 17.2383C7.98535 17.2383 8.04711 17.2127 8.09265 17.1671C8.13818 17.1216 8.16376 17.0598 8.16376 16.9954V16.9954L8.16423 16.994Z"
+                  fill="#DCDCDC" />
+                <path
+                  d="M21.0468 11.3016C20.6551 11.301 20.2673 11.3791 19.9064 11.5312C19.672 8.85094 17.4403 6.75 14.7192 6.75C14.0733 6.7512 13.4332 6.87166 12.8311 7.10531C12.6084 7.19203 12.5498 7.28156 12.547 7.455V16.8937C12.5483 16.9811 12.5813 17.065 12.64 17.1297C12.6987 17.1944 12.7789 17.2355 12.8657 17.2453C12.8732 17.2453 20.9957 17.2505 21.0482 17.2505C22.6786 17.2505 24.0014 15.9187 24.0014 14.2762C24.0014 12.6337 22.6795 11.3016 21.0482 11.3016H21.0468Z"
+                  fill="#DCDCDC" />
+                <path
+                  d="M11.9433 7.44727C11.8567 7.44801 11.774 7.48291 11.7131 7.54436C11.6521 7.60582 11.618 7.68885 11.618 7.77539L11.4844 14.4729L11.618 16.9043C11.6165 16.948 11.6239 16.9916 11.6397 17.0324C11.6554 17.0732 11.6793 17.1104 11.7098 17.1418C11.7402 17.1732 11.7767 17.1981 11.8171 17.2151C11.8574 17.232 11.9008 17.2407 11.9445 17.2405C11.9883 17.2403 12.0315 17.2313 12.0717 17.214C12.1119 17.1967 12.1482 17.1714 12.1784 17.1398C12.2086 17.1081 12.2321 17.0707 12.2475 17.0298C12.263 16.9888 12.27 16.9452 12.2681 16.9015V16.9043L12.413 14.4729L12.2681 7.77305C12.2675 7.687 12.2331 7.60463 12.1724 7.54369C12.1116 7.48275 12.0293 7.44812 11.9433 7.44727V7.44727Z"
+                  fill="#DCDCDC" />
+              </g>
+              <defs>
+                <clipPath id="clip0_605_246">
+                  <rect width="24" height="24" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </a>
+          <a href="#" class="social"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_605_249)">
+                <path
+                  d="M6.5 15C7.32843 15 8 14.3284 8 13.5C8 12.6716 7.32843 12 6.5 12C5.67157 12 5 12.6716 5 13.5C5 14.3284 5.67157 15 6.5 15Z"
+                  stroke="#DCDCDC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M17.5 15C18.3284 15 19 14.3284 19 13.5C19 12.6716 18.3284 12 17.5 12C16.6716 12 16 12.6716 16 13.5C16 14.3284 16.6716 15 17.5 15Z"
+                  stroke="#DCDCDC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M17.5 9C16.4793 9.00011 15.489 9.34721 14.6916 9.98434C13.8941 10.6215 13.337 11.5108 13.1116 12.5063C12.8862 13.5018 13.0059 14.5443 13.4511 15.4628C13.8963 16.3813 14.6406 17.1212 15.5617 17.5609C16.4828 18.0007 17.5261 18.1142 18.5202 17.8829C19.5144 17.6517 20.4003 17.0893 21.0327 16.2881C21.6651 15.4869 22.0064 14.4945 22.0004 13.4738C21.9945 12.4531 21.6417 11.4648 21 10.671L22 9H17.5Z"
+                  stroke="#DCDCDC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M6.49997 9C7.52068 9.00011 8.51102 9.34721 9.30845 9.98434C10.1059 10.6215 10.663 11.5108 10.8884 12.5063C11.1138 13.5018 10.9941 14.5443 10.5489 15.4628C10.1037 16.3813 9.35942 17.1212 8.43831 17.5609C7.5172 18.0007 6.47395 18.1142 5.4798 17.8829C4.48565 17.6517 3.59967 17.0893 2.96727 16.2881C2.33488 15.4869 1.99365 14.4945 1.99959 13.4738C2.00553 12.4531 2.35829 11.4648 2.99997 10.671L1.99997 9H6.49997Z"
+                  stroke="#DCDCDC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M10.5 15.5L12 17.5L13.5 15.5" stroke="#DCDCDC" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M9 6.75025C11 6.08325 13 6.08325 15 6.75025" stroke="#DCDCDC" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round" />
+              </g>
+              <defs>
+                <clipPath id="clip0_605_249">
+                  <rect width="24" height="24" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </a>
+          <a href="#" class="social"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_605_247)">
+                <path
+                  d="M23.8425 6.97453C23.8425 4.86516 22.291 3.16828 20.3738 3.16828C17.7769 3.04687 15.1285 3 12.4219 3H11.5782C8.87817 3 6.22504 3.04687 3.62817 3.16875C1.71567 3.16875 0.164103 4.875 0.164103 6.98437C0.0469159 8.65266 -0.00277159 10.3214 4.091e-05 11.9902C-0.00464659 13.6589 0.0484784 15.3292 0.159416 17.0011C0.159416 19.1105 1.71098 20.8214 3.62348 20.8214C6.3516 20.948 9.15004 21.0042 11.9954 20.9995C14.8454 21.0089 17.636 20.9495 20.3672 20.8214C22.2844 20.8214 23.836 19.1105 23.836 17.0011C23.9485 15.3277 24 13.6589 23.9954 11.9855C24.006 10.3167 23.955 8.64641 23.8425 6.97453ZM9.70317 16.5886V7.37766L16.5 11.9808L9.70317 16.5886Z"
+                  fill="#DCDCDC" />
+              </g>
+              <defs>
+                <clipPath id="clip0_605_247">
+                  <rect width="24" height="24" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </a>
+          <a href="#" class="social"><svg width="21" height="21" viewBox="0 0 21 21" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_605_250)">
+                <path
+                  d="M11.8453 10.5C11.8453 13.7616 9.19406 16.4063 5.922 16.4063C5.14535 16.4073 4.37609 16.2553 3.65816 15.9591C2.94023 15.6628 2.28768 15.2281 1.73777 14.6796C1.18787 14.1312 0.751366 13.4798 0.453198 12.7626C0.15503 12.0455 0.00103347 11.2767 0 10.5C0 7.23713 2.65125 4.59376 5.922 4.59376C6.69876 4.59255 7.46816 4.74437 8.18624 5.04055C8.90432 5.33673 9.55703 5.77147 10.1071 6.31993C10.6571 6.86839 11.0937 7.51984 11.392 8.23706C11.6902 8.95429 11.8443 9.72324 11.8453 10.5V10.5ZM18.3422 10.5C18.3422 13.5713 17.0166 16.0598 15.3812 16.0598C13.7458 16.0598 12.4202 13.5699 12.4202 10.5C12.4202 7.42876 13.7458 4.94026 15.3812 4.94026C17.0166 4.94026 18.3422 7.43007 18.3422 10.5ZM21 10.5C21 13.251 20.5341 15.4809 19.9579 15.4809C19.383 15.4809 18.9171 13.2497 18.9171 10.5C18.9171 7.74901 19.383 5.51907 19.9592 5.51907C20.5341 5.51907 21 7.74901 21 10.5Z"
+                  fill="#DCDCDC" />
+              </g>
+              <defs>
+                <clipPath id="clip0_605_250">
+                  <rect width="21" height="21" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </a>
+          <a href="#" class="social"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12.0023 1.5C6.20388 1.5 1.50232 6.20156 1.50232 12C1.50232 16.2984 4.08982 19.9922 7.78826 21.6188C7.76013 20.8875 7.78357 20.0062 7.97107 19.2094C8.17263 18.3562 9.32107 13.4859 9.32107 13.4859C9.32107 13.4859 8.98357 12.8156 8.98357 11.8266C8.98357 10.2703 9.88357 9.10781 11.0086 9.10781C11.9648 9.10781 12.4242 9.825 12.4242 10.6828C12.4242 11.6437 11.8101 13.0781 11.4961 14.4094C11.2336 15.525 12.0539 16.4297 13.1554 16.4297C15.1429 16.4297 16.4836 13.875 16.4836 10.8469C16.4836 8.54531 14.932 6.825 12.1148 6.825C8.93201 6.825 6.94451 9.20156 6.94451 11.8547C6.94451 12.7687 7.21638 13.4156 7.63826 13.9125C7.83044 14.1422 7.85857 14.2359 7.78826 14.4984C7.73669 14.6906 7.62419 15.1547 7.57263 15.3422C7.50232 15.6094 7.28669 15.7031 7.04763 15.6047C5.58044 15.0047 4.89607 13.4016 4.89607 11.5922C4.89607 8.61094 7.41326 5.03438 12.4008 5.03438C16.4086 5.03438 19.0476 7.93594 19.0476 11.0484C19.0476 15.1687 16.7554 18.2438 13.3804 18.2438C12.2461 18.2438 11.182 17.6297 10.8164 16.9359C10.8164 16.9359 10.207 19.3547 10.0758 19.8234C9.85544 20.6344 9.41951 21.4406 9.02107 22.0734C9.98758 22.3586 10.9899 22.5038 11.9976 22.5047C17.7961 22.5047 22.4976 17.8031 22.4976 12.0047C22.4976 6.20625 17.8008 1.5 12.0023 1.5Z"
+                fill="#DCDCDC" />
+            </svg>
+          </a>
         </div>
         <a href="#">Press</a>
         <a href="#">Travel trade</a>

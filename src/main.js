@@ -46,6 +46,8 @@ const checkScreenSize = () => {
     }
   }
 
+  
+
   const proofComments = document.querySelectorAll(".proof__mistake")
   proofComments.forEach((comment) => {
     comment.addEventListener(
@@ -58,6 +60,25 @@ const checkScreenSize = () => {
     );
   });
 }
+
+const moveToCursor = (element, intensity = 100) => {
+  document.addEventListener('mousemove', (e) => {
+    // Calculate the center of the element
+    const rect = element.getBoundingClientRect();
+    const elementCenterX = rect.left + rect.width / 2;
+    const elementCenterY = rect.top + rect.height / 2;
+
+    // Calculate mouse position relative to element center
+    const mouseX = e.clientX - elementCenterX;
+    const mouseY = e.clientY - elementCenterY;
+
+    // Move element in opposite direction of cursor
+    element.style.transform = `translate(${-mouseX / intensity}px, ${-mouseY / intensity}px)`;
+    // element.style.rotate = "90deg"
+  });
+}
+
+
 
 const addSpecialCells = (cellCount, s1, s2, s3) => {
   const specialCells = document.querySelectorAll('.cell--special');
@@ -192,6 +213,9 @@ const handleToolClick = (dataId, useful) => {
   }, 500);
 
   toolHeading.textContent = dataId
+  if(dataId === "measuring"){
+    toolHeading.textContent = "Composing stick"
+  }
 
 
   if (clickedButtons.has(dataId)) {
@@ -241,9 +265,9 @@ const setProofHTML = (width) => {
               first Dutch
               dictionaries.</p>
           <p class="proof__text">
-            Proofreading in Christophe Plantin's workschop was a task of vigilance. Every page had to be scurtinized for
+            Proofreading in Christophe Plantin's workshop was a task of vigilance. Every page had to be scrutinized for
             errors
-            before <span data-target="proof__comment--1" class="proof__mistake">itleft</span> the press. A misplaced leter, a missing mark, or a smudged line could compromise the integrity
+            before <span data-target="proof__comment--1" class="proof__mistake">itleft</span> the press. A misplaced letter, a missing mark, or a smudged line could compromise the integrity
             of the
             text. For Plantin, however, the act of proofreading extended beyond the printed page. In an era marked by
             religious
@@ -263,10 +287,10 @@ const setProofHTML = (width) => {
   } if (width === true) {
     console.log("narrow")
     container.innerHTML = `<p class="proof__text">
-            Proofreading in Christophe Plantin's workschop was a task of vigilance. Every page had to be scurtinized for
+            Proofreading in Christophe Plantin's workshop was a task of vigilance. Every page had to be scrutinized for
             errors
             before<span data-target="proof__comment--1" class="proof__mistake">itleft</span> the press. A
-            misplaced leter, a missing mark, or a smudged line could compromise the integrity
+            misplaced letter, a missing mark, or a smudged line could compromise the integrity
             of the
             text. For Plantin, however, the act of proofreading extended beyond the printed page. In an era marked by
             religious
@@ -316,7 +340,7 @@ const revealComment = (target, event) => {
 
   mistakeCounter.textContent = 3 - mistakesFound
 
-  if (mistakesFound === 3){
+  if (mistakesFound === 3) {
     const proofInfo = document.querySelector(".proof__info")
     proofInfo.innerHTML = `<span class="info--highlight">Well done!</span> All errors have been found`
   }
@@ -356,41 +380,14 @@ const setBibleHTML = (arg) => {
 
 
     animationContainer.innerHTML = `
-            <video autoplay loop muted class="book__anim">
-              <source src="/assets/book.webm" type="video/webm">
-              Your browser does not support the video tag.
-            </video>
-            <video autoplay loop muted class="book__anim">
-              <source src="/assets/book.webm" type="video/webm">
-              Your browser does not support the video tag.
-            </video>
-
-            <video autoplay loop muted class="book__anim">
-              <source src="/assets/book.webm" type="video/webm">
-              Your browser does not support the video tag.
-            </video>
-            <video autoplay loop muted class="book__anim">
-              <source src="/assets/book.webm" type="video/webm">
-              Your browser does not support the video tag.
-            </video>
-
-            <video autoplay loop muted class="book__anim">
-              <source src="/assets/book.webm" type="video/webm">
-              Your browser does not support the video tag.
-            </video>
-            <video autoplay loop muted class="book__anim">
-              <source src="/assets/book.webm" type="video/webm">
-              Your browser does not support the video tag.
-            </video>
-
-            <video autoplay loop muted class="book__anim">
-              <source src="/assets/book.webm" type="video/webm">
-              Your browser does not support the video tag.
-            </video>
-            <video autoplay loop muted class="book__anim">
-              <source src="/assets/book.webm" type="video/webm">
-              Your browser does not support the video tag.
-            </video>
+            <img class="book__anim" src="assets/book.gif" alt="book animation">
+            <img class="book__anim" src="assets/book.gif" alt="book animation">
+            <img class="book__anim" src="assets/book.gif" alt="book animation">
+            <img class="book__anim" src="assets/book.gif" alt="book animation">
+            <img class="book__anim" src="assets/book.gif" alt="book animation">
+            <img class="book__anim" src="assets/book.gif" alt="book animation">
+            <img class="book__anim" src="assets/book.gif" alt="book animation">
+            <img class="book__anim" src="assets/book.gif" alt="book animation">
   `
   }
 
@@ -403,9 +400,9 @@ const setBibleHTML = (arg) => {
 
 
 const bibleInfo = [
-  "Commissioned by King Philip II of Spain, the Polyglot Bible was a multilingual masterpiece. It featured the text of the Bible in Hebrew, Greek, Latin, Syriac, and Aramaic, spread across eight massive volumes. This work wasn't merely a display of linguistic scholarship; it was also a political and religious statement, reinforcing Catholic authority in an era of Protestant Reformation.",
-  "Printing the Polyglot Bible was akin to building a cathedral, one stone—or in this case, one page—at a time. Each page had to be perfect, free of smudges, alignment errors, or inconsistencies. Plantin's presses hummed with activity as they worked to produce a work that was as much a technical marvel as it was a scholarly one.",
-  "While the Polyglot Bible was Plantin's crowning achievement, his workshop produced a wide range of works that spread knowledge across Europe. These included Religious Texts, Scientific Works, Humanist Literature",
+  "Commissioned by <em>King Philip II of Spain</em>, the <em>Polyglot Bible</em> was a multilingual masterpiece. It featured the text of the Bible in <em>Hebrew, Greek, Latin, Syriac</em>, and <em>Aramaic</em>, spread across eight massive volumes. This work wasn't merely a display of linguistic scholarship; it was also a <em>political and religious statement</em>, reinforcing Catholic authority in an era of Protestant Reformation.",
+  "Printing the <em>Polyglot Bible</em> was akin to building a cathedral, one stone—or in this case, one page—at a time. <em>Each page had to be perfect, free of smudges, alignment errors, or inconsistencies</em>. Plantin's presses hummed with activity as they worked to produce a work that was as much a technical marvel as it was a scholarly one.",
+  "While the <em>Polyglot Bible</em> was Plantin's crowning achievement, his workshop produced a wide range of works that spread knowledge across Europe. These included <em>Religious Texts, Scientific Works, Humanist Literature</em>",
 ];
 
 let bibleProgress = 0
@@ -487,24 +484,43 @@ const slideTypecase = () => {
   console.log("AAAA")
 }
 
+const slideBooks = () => {
+  const books = document.querySelectorAll(".bible__stack")
+  for(let i = 0; i < 8; i++){
+    setTimeout(() => {
+      books[i].style.transform = "translateX(0)";
+      books[i].style.opacity = "1";
+    }, i * 50);
+  }
+}
 
 
 
-const typecaseSection = document.querySelector('.typecase__section'); // Replace with your target selector
+const bibleSection = document.querySelector('.bible__section');
+const typecaseSection = document.querySelector('.typecase__section');
 
-// Create the Intersection Observer
 const observer = new IntersectionObserver(
-  ([entry]) => {
-    if (entry.isIntersecting) {
-      slideTypecase()
-      observer.unobserve(typecaseSection); // Stop observing after first trigger
-    }
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        if (entry.target.classList.contains("typecase__section")) {
+          slideTypecase();
+        } else if (entry.target.classList.contains("bible__section")) {
+          slideBooks()
+        }
+
+        // Stop observing this specific element after it triggers
+        observer.unobserve(entry.target);
+      }
+    });
   },
-  { threshold: 0.95 } // Trigger when 10% of the element is visible
+  { threshold: 0.95 }
 );
 
-// Observe the single target element
 observer.observe(typecaseSection);
+observer.observe(bibleSection);
+
+
 
 
 
@@ -516,6 +532,9 @@ observer.observe(typecaseSection);
 
 
 const init = () => {
+
+  const plantin = document.querySelector('.plantin');
+  moveToCursor(plantin);
 
   const tools = document.querySelectorAll('.tool');
 
@@ -580,6 +599,22 @@ const init = () => {
     const y = e.clientY - rect.top;
     maskImage.style.setProperty('--x', `${x}px`);
     maskImage.style.setProperty('--y', `${y}px`);
+  });
+
+
+
+
+  document.querySelectorAll('.cell--special').forEach((el) => {
+    el.addEventListener('touchstart', () => {
+      el.classList.toggle('cell--special--open');
+    });
+
+    // Optional: Remove the class when tapping outside
+    document.addEventListener('click', (e) => {
+      if (!el.contains(e.target)) {
+        el.classList.remove('cell--special--open');
+      }
+    });
   });
 }
 
