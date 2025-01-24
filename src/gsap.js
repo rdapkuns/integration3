@@ -268,7 +268,7 @@ const distributeBooks = () => {
             end: "+=3000",
             pin: true,
             scrub: true,
-            markers: true
+            // markers: true
         }
     });
 
@@ -370,7 +370,7 @@ const addMapWrapper = () => {
             start: "top top",
             end: "+=500",
             scrub: true,
-            markers: true
+            // markers: true
         },
     });
 }
@@ -408,6 +408,7 @@ const checkScreenSize = () => {
 const init = () => {
     distributeBooks()
     swapPressText()
+    checkScreenSize()
     window.addEventListener("resize", checkScreenSize);
     gsap.from(".progress-bar--fill", {
 

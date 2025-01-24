@@ -1,6 +1,6 @@
 import './reset.css'
 import './style.css'
-import { setupCounter } from './counter.js'
+// import { setupCounter } from './counter.js'
 
 
 let isWide = (window.innerWidth > 0 ? window.innerWidth : screen.width) > 960;
