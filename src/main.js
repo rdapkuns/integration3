@@ -99,39 +99,111 @@ const addSpecialCells = (cellCount, s1, s2, s3) => {
 let leftPercent
 let topPercent
 
-draggableDiv.addEventListener('mousedown', (e) => {
-  isDragging = true;
-  offsetX = e.offsetX;
-  offsetY = e.offsetY;
-  draggableDiv.style.cursor = 'grabbing';
-});
+draggableDiv.addEventListener('mousedown', startDragging);
+draggableDiv.addEventListener('touchstart', startDragging);
 
-document.addEventListener('mouseup', () => {
-  isDragging = false;
-  draggableDiv.style.cursor = 'grab';
-  checkPlantinPos(leftPercent, topPercent)
-});
+document.addEventListener('mouseup', stopDragging);
+document.addEventListener('touchend', stopDragging);
 
-document.addEventListener('mousemove', (e) => {
+document.addEventListener('mousemove', drag);
+document.addEventListener('touchmove', drag);
+
+function startDragging(e) {
+  // Prevent default scroll behavior on touch devices
+  if (e.target === draggableDiv) {
+    e.preventDefault();
+  }
+
+  // Handle both mouse and touch events
+  const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+  const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+
+  if (clientX !== undefined && clientY !== undefined) {
+    isDragging = true;
+
+    // Get the correct offset for both mouse and touch events
+    const rect = draggableDiv.getBoundingClientRect();
+    offsetX = (clientX - rect.left);
+    offsetY = (clientY - rect.top);
+
+    draggableDiv.style.cursor = 'grabbing';
+  }
+}
+
+function stopDragging() {
+  if (isDragging) {
+    isDragging = false;
+    draggableDiv.style.cursor = 'grab';
+    checkPlantinPos(leftPercent, topPercent);
+  }
+}
+
+function drag(e) {
   if (!isDragging) return;
 
-  const rect = container.getBoundingClientRect();
-  let left = e.clientX - rect.left - offsetX;
-  let top = e.clientY - rect.top - offsetY;
+  // Only prevent default when actually dragging the element
+  if (e.target === draggableDiv) {
+    e.preventDefault();
+  }
 
-  const centerLeft = left + draggableDiv.offsetWidth / 2;
-  const centerTop = top + draggableDiv.offsetHeight / 2;
+  // Handle both mouse and touch events
+  const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+  const clientY = e.clientY || (e.touches && e.touches[0].clientY);
 
-  // Constrain within the parent container
-  left = Math.max(0, Math.min(left, rect.width - draggableDiv.offsetWidth));
-  top = Math.max(0, Math.min(top, rect.height - draggableDiv.offsetHeight));
+  if (clientX !== undefined && clientY !== undefined) {
+    const rect = container.getBoundingClientRect();
 
-  draggableDiv.style.left = `${left}px`;
-  draggableDiv.style.top = `${top}px`;
+    let left = clientX - rect.left - offsetX;
+    let top = clientY - rect.top - offsetY;
 
-  leftPercent = (centerLeft / rect.width) * 100;
-  topPercent = (centerTop / rect.height) * 100;
-});
+    const centerLeft = left + draggableDiv.offsetWidth / 2;
+    const centerTop = top + draggableDiv.offsetHeight / 2;
+
+    // Constrain within the parent container
+    left = Math.max(0, Math.min(left, rect.width - draggableDiv.offsetWidth));
+    top = Math.max(0, Math.min(top, rect.height - draggableDiv.offsetHeight));
+
+    draggableDiv.style.left = `${left}px`;
+    draggableDiv.style.top = `${top}px`;
+
+    leftPercent = (centerLeft / rect.width) * 100;
+    topPercent = (centerTop / rect.height) * 100;
+  }
+}
+
+// draggableDiv.addEventListener('mousedown', (e) => {
+//   isDragging = true;
+//   offsetX = e.offsetX;
+//   offsetY = e.offsetY;
+//   draggableDiv.style.cursor = 'grabbing';
+// });
+
+// document.addEventListener('mouseup', () => {
+//   isDragging = false;
+//   draggableDiv.style.cursor = 'grab';
+//   checkPlantinPos(leftPercent, topPercent)
+// });
+
+// document.addEventListener('mousemove', (e) => {
+//   if (!isDragging) return;
+
+//   const rect = container.getBoundingClientRect();
+//   let left = e.clientX - rect.left - offsetX;
+//   let top = e.clientY - rect.top - offsetY;
+
+//   const centerLeft = left + draggableDiv.offsetWidth / 2;
+//   const centerTop = top + draggableDiv.offsetHeight / 2;
+
+//   // Constrain within the parent container
+//   left = Math.max(0, Math.min(left, rect.width - draggableDiv.offsetWidth));
+//   top = Math.max(0, Math.min(top, rect.height - draggableDiv.offsetHeight));
+
+//   draggableDiv.style.left = `${left}px`;
+//   draggableDiv.style.top = `${top}px`;
+
+//   leftPercent = (centerLeft / rect.width) * 100;
+//   topPercent = (centerTop / rect.height) * 100;
+// });
 
 let hasBeenToLaiden = false
 const mapUnlock1 = document.querySelectorAll(".map__unlock--1")
@@ -204,10 +276,10 @@ const handleToolClick = (dataId, useful) => {
   setTimeout(() => {
     if (useful === "true") {
 
-      toolContainer.style.backgroundImage = `url('/assets/tools/${dataId}.png')`;
+      toolContainer.style.backgroundImage = `url('/integration3/assets/tools/${dataId}.png')`;
       toolContainer.style.backgroundPosition = "250% 50%";
     } else {
-      toolContainer.style.backgroundImage = `url('/assets/tools/blank.png')`;
+      toolContainer.style.backgroundImage = `url('/integration3/assets/tools/blank.png')`;
     }
 
   }, 500);

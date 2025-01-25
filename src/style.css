@@ -1680,6 +1680,10 @@ img {
   height: 3rem;
   bottom: 40%;
   left: 25%;
+
+  /* touch-action: none;
+    user-select: none; */
+    /* touch-action: pan-y; */
 }
 
 .map__plantin::before {
@@ -1877,6 +1881,7 @@ img {
 
 
 footer {
+  font-family: "Charis SIL";
   background-color: #1D1D1B;
   display: flex;
   flex-direction: column;
