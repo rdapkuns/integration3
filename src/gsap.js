@@ -5,16 +5,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 
 gsap.registerPlugin(ScrollTrigger);
-/* The encoding is super important here to enable frame-by-frame scrubbing. */
-// ffmpeg -i ~/Downloads/Toshiba\ video/original.mov -movflags faststart -vcodec libx264 -crf 23 -g 1 -pix_fmt yuv420p output.mp4
-// ffmpeg -i ~/Downloads/Toshiba\ video/original.mov -vf scale=960:-1 -movflags faststart -vcodec libx264 -crf 20 -g 1 -pix_fmt yuv420p output_960.mp4
-
-
-
-
-
-
-
 
 const sectionPrint = document.querySelector(".printing")
 
@@ -41,8 +31,7 @@ const videoScrub = (video, vars) => {
         scrollTrigger: {
             ...vars.scrollTrigger,
             onUpdate: self => {
-                // Smoothly update the video frame on every scroll update
-                const progress = self.progress; // Progress of the ScrollTrigger (0 to 1)
+                const progress = self.progress;
                 video.currentTime = progress * video.duration;
             }
         }
@@ -55,112 +44,32 @@ const videoScrub = (video, vars) => {
 
 
 gsap.utils.toArray(".press__anim").forEach(video => {
-    const parent = video.parentElement; // Get the parent container of the video
-    // let lastFrame = 0;
-    // const onUpdate = (self) => {
-    //     const frame = Math.floor(self.progress * video.duration * 60); // Calculate the current frame (assuming 60fps)
-    //     if (frame !== lastFrame) {
-    //         video.currentTime = self.progress * video.duration; // Update only if on a new frame
-    //         lastFrame = frame;
-    //     }
-    // };
-    // let totalLoops = 4; // Number of loops
-    // const onUpdate = (self) => {
-    //     if (video.readyState >= 1 && video.duration) {
-    //         const progress = self.progress * totalLoops; // Map scroll progress to total loops
-    //         const loopTime = progress % 1; // Keep progress within a single loop (0 to 1)
-    //         video.currentTime = loopTime * video.duration; // Set the current time based on loop progress
-    //     }
-    // };
+    const parent = video.parentElement; 
 
     videoScrub(video, {
         scrollTrigger: {
-            trigger: sectionPrint, // Set the parent container as the trigger
+            trigger: sectionPrint, 
             start: "+=50",
             end: "+=3000",
-            // markers: true,
+            
             scrub: true,
-            // ease: Power2.easeOut,
-            pin: true, // Pin the parent container
-            // onUpdate: onUpdate,
+            
+            pin: true, 
+            
         }
     });
 });
 
 
-// gsap.utils.toArray(".press__anim").forEach(video => videoScrub(video, {
-//     scrollTrigger: {
-//         trigger: sectionPrint,
-//         start: "center center",
-//         end: "+=600",
-//         markers: true,
-//         scrub: true,
-//         pin: true
-//     }
-// }));
-
-// const swapPressText = () => {
-
-//     const paragraph1 = document.querySelector(".printing_paragraph-1")
-//     const paragraph2 = document.querySelector(".printing_paragraph-2")
-//     const paragraph3 = document.querySelector(".printing_paragraph-3")
-
-
-//     let timeline = gsap.timeline({
-//         scrollTrigger: {
-//             trigger: sectionPrint,
-//             start: "+=50",
-//             end: "+=1000",
-//             // scrub: true,
-//         }
-//     });
-
-//     // dist__paragraph1
-
-//     timeline
-//         .to(paragraph1, {
-//             y: "-200%",
-//             opacity: 0,
-//             ease: "power2.inOut",
-//         }, "+=0.2")
-
-//         .from(paragraph2, {
-//             y: "100%",
-//             opacity: 0,
-//             ease: "power2.out",
-//         })
-
-//         .to(paragraph2, {
-//             y: "-200%",
-//             opacity: 0,
-//             ease: "power2.inOut",
-//         })
-
-//         .from(paragraph3, {
-//             y: "100%",
-//             opacity: 0,
-//             ease: "power2.out",
-//         })
-
-//         .to(paragraph3, {
-//             y: "-200%",
-//             opacity: 0,
-//             ease: "power2.inOut",
-//         })
-
-
-// };
 const swapPressText = () => {
     const paragraph1 = document.querySelector(".printing_paragraph-1");
     const paragraph2 = document.querySelector(".printing_paragraph-2");
     const paragraph3 = document.querySelector(".printing_paragraph-3");
 
-    // Create separate timelines for each paragraph swap
     const tl1 = gsap.timeline({ paused: true });
     const tl2 = gsap.timeline({ paused: true });
     const tl3 = gsap.timeline({ paused: true });
 
-    // Set up individual animations
     tl1
         .to(paragraph1, {
             y: "-200%",
@@ -197,10 +106,8 @@ const swapPressText = () => {
             ease: "power2.inOut",
         });
 
-    // Track last progress to determine scroll direction
     let lastProgress = 0;
 
-    // Create main ScrollTrigger
     ScrollTrigger.create({
         trigger: sectionPrint,
         start: "+=50",
@@ -209,46 +116,33 @@ const swapPressText = () => {
             const progress = self.progress;
             const scrollingForward = progress > lastProgress;
 
-            // Forward scrolling animations
             if (scrollingForward) {
-                // Trigger first swap at the start (0%)
                 if (progress >= 0.3 && !tl1.isActive()) {
                     if (!tl1.progress()) {
                         tl1.play();
                     }
                 }
 
-                // Trigger second swap at 30%
                 if (progress >= 0.6 && !tl2.isActive()) {
                     if (!tl2.progress()) {
                         tl2.play();
                     }
                 }
-
-                // Trigger third swap at 70%
-
             }
-            // Reverse scrolling animations
             else {
-                // Reverse third swap at 70%
 
 
-                // Reverse second swap at 30%
                 if (progress <= 0.6 && !tl2.isActive()) {
                     if (tl2.progress() === 1) {
                         tl2.reverse();
                     }
                 }
-
-                // Reverse first swap at the start (0%)
                 if (progress <= 0.3 && !tl1.isActive()) {
                     if (tl1.progress() === 1) {
                         tl1.reverse();
                     }
                 }
             }
-
-            // Update last progress
             lastProgress = progress;
         }
     });
@@ -271,8 +165,6 @@ const distributeBooks = () => {
             // markers: true
         }
     });
-
-    // dist__paragraph1
 
     timeline
         .to(distBook1, {
@@ -337,27 +229,6 @@ const distributeBooks = () => {
 
 };
 
-// gsap.to(distBook2, {
-
-//     ease: "none",
-//     transformOrigin: "top center",
-//     // scaleY: 0,
-//     y: "+30%",
-//     delay: 10,
-//     ease: "power2.inOut",
-//     scrollTrigger: {
-//         trigger: ".distribution",
-//         start: "top top",
-//         end: "+=1000",
-//         pin: true,
-//         scrub: true,
-
-
-//         // markers: true,
-//         // pin: true,
-//     },
-// });
-// }
 
 let mapAnimation;
 
@@ -383,7 +254,6 @@ const removeMapWrapper = () => {
     }
 }
 
-// let width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 let isWide = (window.innerWidth > 0 ? window.innerWidth : screen.width) > 960;
 
 

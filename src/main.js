@@ -1,6 +1,5 @@
 import './reset.css'
 import './style.css'
-// import { setupCounter } from './counter.js'
 
 
 let isWide = (window.innerWidth > 0 ? window.innerWidth : screen.width) > 960;
@@ -46,7 +45,7 @@ const checkScreenSize = () => {
     }
   }
 
-  
+
 
   const proofComments = document.querySelectorAll(".proof__mistake")
   proofComments.forEach((comment) => {
@@ -63,18 +62,14 @@ const checkScreenSize = () => {
 
 const moveToCursor = (element, intensity = 100) => {
   document.addEventListener('mousemove', (e) => {
-    // Calculate the center of the element
     const rect = element.getBoundingClientRect();
     const elementCenterX = rect.left + rect.width / 2;
     const elementCenterY = rect.top + rect.height / 2;
 
-    // Calculate mouse position relative to element center
     const mouseX = e.clientX - elementCenterX;
     const mouseY = e.clientY - elementCenterY;
 
-    // Move element in opposite direction of cursor
     element.style.transform = `translate(${-mouseX / intensity}px, ${-mouseY / intensity}px)`;
-    // element.style.rotate = "90deg"
   });
 }
 
@@ -108,20 +103,19 @@ document.addEventListener('touchend', stopDragging);
 document.addEventListener('mousemove', drag);
 document.addEventListener('touchmove', drag);
 
+
+//I tried converting these to arrow functions but they stop working then
 function startDragging(e) {
-  // Prevent default scroll behavior on touch devices
   if (e.target === draggableDiv) {
     e.preventDefault();
   }
 
-  // Handle both mouse and touch events
   const clientX = e.clientX || (e.touches && e.touches[0].clientX);
   const clientY = e.clientY || (e.touches && e.touches[0].clientY);
 
   if (clientX !== undefined && clientY !== undefined) {
     isDragging = true;
 
-    // Get the correct offset for both mouse and touch events
     const rect = draggableDiv.getBoundingClientRect();
     offsetX = (clientX - rect.left);
     offsetY = (clientY - rect.top);
@@ -140,13 +134,10 @@ function stopDragging() {
 
 function drag(e) {
   if (!isDragging) return;
-
-  // Only prevent default when actually dragging the element
   if (e.target === draggableDiv) {
     e.preventDefault();
   }
 
-  // Handle both mouse and touch events
   const clientX = e.clientX || (e.touches && e.touches[0].clientX);
   const clientY = e.clientY || (e.touches && e.touches[0].clientY);
 
@@ -159,7 +150,6 @@ function drag(e) {
     const centerLeft = left + draggableDiv.offsetWidth / 2;
     const centerTop = top + draggableDiv.offsetHeight / 2;
 
-    // Constrain within the parent container
     left = Math.max(0, Math.min(left, rect.width - draggableDiv.offsetWidth));
     top = Math.max(0, Math.min(top, rect.height - draggableDiv.offsetHeight));
 
@@ -171,39 +161,6 @@ function drag(e) {
   }
 }
 
-// draggableDiv.addEventListener('mousedown', (e) => {
-//   isDragging = true;
-//   offsetX = e.offsetX;
-//   offsetY = e.offsetY;
-//   draggableDiv.style.cursor = 'grabbing';
-// });
-
-// document.addEventListener('mouseup', () => {
-//   isDragging = false;
-//   draggableDiv.style.cursor = 'grab';
-//   checkPlantinPos(leftPercent, topPercent)
-// });
-
-// document.addEventListener('mousemove', (e) => {
-//   if (!isDragging) return;
-
-//   const rect = container.getBoundingClientRect();
-//   let left = e.clientX - rect.left - offsetX;
-//   let top = e.clientY - rect.top - offsetY;
-
-//   const centerLeft = left + draggableDiv.offsetWidth / 2;
-//   const centerTop = top + draggableDiv.offsetHeight / 2;
-
-//   // Constrain within the parent container
-//   left = Math.max(0, Math.min(left, rect.width - draggableDiv.offsetWidth));
-//   top = Math.max(0, Math.min(top, rect.height - draggableDiv.offsetHeight));
-
-//   draggableDiv.style.left = `${left}px`;
-//   draggableDiv.style.top = `${top}px`;
-
-//   leftPercent = (centerLeft / rect.width) * 100;
-//   topPercent = (centerTop / rect.height) * 100;
-// });
 
 let hasBeenToLaiden = false
 const mapUnlock1 = document.querySelectorAll(".map__unlock--1")
@@ -269,8 +226,6 @@ const toolContainer = document.querySelector(".setting__control")
 const handleToolClick = (dataId, useful) => {
 
   toolContainer.style.backgroundPosition = "800% 50%";
-  // toolContainer.style.backgroundImage = `url('/assets/tools/${dataId}.png')`;
-  // toolContainer.style.backgroundPosition = "300px 0px";
 
 
   setTimeout(() => {
@@ -285,7 +240,7 @@ const handleToolClick = (dataId, useful) => {
   }, 500);
 
   toolHeading.textContent = dataId
-  if(dataId === "measuring"){
+  if (dataId === "measuring") {
     toolHeading.textContent = "Composing stick"
   }
 
@@ -301,7 +256,6 @@ const handleToolClick = (dataId, useful) => {
   clickedButtons.add(dataId);
 
   setTimeout(() => {
-    // Update the text
     toolText.textContent = toolInfo[dataId];
     if (useful === "true") {
       infoProgress++;
@@ -311,7 +265,6 @@ const handleToolClick = (dataId, useful) => {
     if (useful === "false") {
       storyText.textContent = "Try again"
     }
-    // Fade in the new text
     toolText.classList.remove('hidden');
     storyText.classList.remove('hidden');
   }, 500);
@@ -424,24 +377,21 @@ const moveVisibleComments = (distance) => {
   const visibleComments = document.querySelectorAll(".proof__comment--visible");
 
   visibleComments.forEach((comment) => {
-    // Get the current transform value and extract the Y-translation
     const currentTransform = getComputedStyle(comment).transform;
     let currentY = 0;
 
     if (currentTransform !== "none") {
       const matrix = currentTransform.match(/matrix.*\((.+)\)/);
       if (matrix) {
-        currentY = parseFloat(matrix[1].split(", ")[5]); // Extract the Y-translation from the matrix
+        currentY = parseFloat(matrix[1].split(", ")[5]);
       }
     }
 
-    // Apply the new translation distance cumulatively
-    const newY = currentY + distance + 12; // Adding a gap of 12px
+    const newY = currentY + distance + 12;
     comment.style.transform = `translateY(${newY}px)`;
   });
 
-  // Update the global distance tracker
-  moveCommentDistance += distance + 12; // Add the distance and the gap
+  moveCommentDistance += distance + 12;
 };
 
 
@@ -494,7 +444,6 @@ const handleBibleParagraph = (arg) => {
     dot.classList.remove("progress__dot--current")
   })
   const bibleParagraph = document.querySelector(".bible__description--body")
-  // bibleProgress = bibleProgress + arg
   bibleProgress = Math.min(Math.max(bibleProgress + arg, 0), bibleInfo.length - 1);
 
 
@@ -558,7 +507,7 @@ const slideTypecase = () => {
 
 const slideBooks = () => {
   const books = document.querySelectorAll(".bible__stack")
-  for(let i = 0; i < 8; i++){
+  for (let i = 0; i < 8; i++) {
     setTimeout(() => {
       books[i].style.transform = "translateX(0)";
       books[i].style.opacity = "1";
@@ -566,10 +515,24 @@ const slideBooks = () => {
   }
 }
 
+const slideType = () => {
+  const typeMain = document.querySelector(".type__main")
+  const type = document.querySelectorAll(".type__extraview")
+  for (let i = 0; i < 3; i++) {
+    setTimeout(() => {
+      type[i].style.transform = "translateX(0)";
+      type[i].style.opacity = "1";
+    }, i * 50);
+  }
+  typeMain.style.transform = "translateX(0)";
+  typeMain.style.opacity = "1";
+}
+
 
 
 const bibleSection = document.querySelector('.bible__section');
 const typecaseSection = document.querySelector('.typecase__section');
+const typesettingSection = document.querySelector('.typesetting');
 
 const observer = new IntersectionObserver(
   (entries, observer) => {
@@ -579,20 +542,33 @@ const observer = new IntersectionObserver(
           slideTypecase();
         } else if (entry.target.classList.contains("bible__section")) {
           slideBooks()
+        } else if (entry.target.classList.contains("typesetting")) {
+          slideType()
+          console.log("typesetting found")
         }
 
-        // Stop observing this specific element after it triggers
         observer.unobserve(entry.target);
       }
     });
   },
-  { threshold: 0.95 }
+  { threshold: 0.8 }
 );
 
 observer.observe(typecaseSection);
 observer.observe(bibleSection);
+observer.observe(typesettingSection);
 
 
+
+const updateMaskPosition = (e) => {
+  const touch = e.touches[0];
+  const rect = maskContainer.getBoundingClientRect();
+  const x = touch.clientX - rect.left;
+  const y = touch.clientY - rect.top;
+
+  maskImage.style.setProperty('--x', `${x}px`);
+  maskImage.style.setProperty('--y', `${y}px`);
+};
 
 
 
@@ -673,6 +649,21 @@ const init = () => {
     maskImage.style.setProperty('--y', `${y}px`);
   });
 
+  maskContainer.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    maskImage.style.setProperty('--scale', '1');
+    updateMaskPosition(e);
+  });
+
+  maskContainer.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+    updateMaskPosition(e);
+  });
+
+  maskContainer.addEventListener('touchend', () => {
+    maskImage.style.setProperty('--scale', '0.1');
+  });
+
 
 
 
@@ -681,7 +672,6 @@ const init = () => {
       el.classList.toggle('cell--special--open');
     });
 
-    // Optional: Remove the class when tapping outside
     document.addEventListener('click', (e) => {
       if (!el.contains(e.target)) {
         el.classList.remove('cell--special--open');
